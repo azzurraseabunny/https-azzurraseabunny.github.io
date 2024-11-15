@@ -8,6 +8,6 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://azzurra-portfolio.com',
+    site: 'https://azzurraseabunny.github.io/portfolio/',
     integrations: [mdx(), sitemap(), react()],
 });
