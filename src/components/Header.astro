@@ -26,25 +26,26 @@ import { SITE_TITLE } from '../consts';
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
-  max-width: 100%;
+  height: 11vh; /* Adjust height to take up a smaller portion of the viewport height */
+  width: 100%;
   padding: 20px;
+  box-sizing: border-box; /* Ensure padding doesn't overflow */
 }
 
 /* Placeholder Box */
 .placeholder-box {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 104%;
   background-color: #26211e;
   z-index: 1;
 }
 
 /* Responsive GIF Styling */
 .centered-gif {
-  width: 100%;
-  max-width: 100%;
+  width: 100%; /* Ensures the GIF is responsive */
   height: auto;
+  max-width: 100%;
   position: relative;
   z-index: 2; /* Keeps the GIF above the placeholder */
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
@@ -55,16 +56,17 @@ import { SITE_TITLE } from '../consts';
   filter: brightness(1.2);
 }
 
-/* Position the nav container to be in front of the GIF */
+/* Position the nav container to be in front of the GIF and center the buttons vertically */
 nav {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5.5%; /* Center vertically */
+  right: 2%;
   z-index: 3; /* Ensure the nav is above the GIF */
   display: flex;
-  justify-content: flex-end; /* Align buttons to the right */
-  align-items: center;
-  padding: 20px;
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Center the buttons vertically */
+  transform: translateY(-50%); /* Adjust for exact centering */
+  padding: 0;
   margin: 0;
 }
 
@@ -77,21 +79,41 @@ nav {
 }
 
 .internal-links li {
-  margin: 0 8px; /* Reduced margin to bring buttons closer */
+  margin: 0 30px; /* Increased gap between buttons */
 }
 
 .internal-links a {
-  padding: 0.25em 0.75em; /* Reduced padding for smaller buttons */
+  padding: 0.25em 0.5em; /* Further reduced padding for even smaller buttons */
   color: white;
   background-color: #db3f23; /* Orange background for the buttons */
   border-radius: 5px;
   text-decoration: none;
   display: block;
-  font-size: 0.9em; /* Reduced font size */
+  font-size: 0.7em; /* Smaller font size */
   transition: background-color 0.3s;
+  /* Scale button size with the screen */
+  font-size: calc(0.7em + 0.3vw); /* Makes the font-size scale with the viewport width */
+  padding: calc(0.2em - 0.3vw) calc(0.5em + 0.6vw); /* Adjust padding to scale with screen */
 }
 
 .internal-links a:hover {
   background-color: gray; /* Change background to gray on hover */
 }
+
+@media (max-width: 768px) {
+  /* Smaller screen adjustments */
+  .centered-gif {
+    width: 80%; /* Make GIF slightly smaller on smaller screens */
+  }
+
+  nav {
+    top: 50%; /* Adjust top position to center the nav even on smaller screens */
+  }
+
+  .internal-links a {
+    font-size: 0.6em; /* Make buttons even smaller on smaller screens */
+    padding: 0.2em 0.5em; /* Adjust padding */
+  }
+}
+
 </style>

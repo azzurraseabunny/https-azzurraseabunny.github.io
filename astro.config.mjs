@@ -8,7 +8,7 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-    site: '',
+    site: 'https://azzurraseabunny.github.io',
 	base: '',
     integrations: [mdx(), sitemap(), react()],
 });
