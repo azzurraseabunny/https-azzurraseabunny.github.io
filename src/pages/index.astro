@@ -7,44 +7,69 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      /* Flexbox Layout for image and text container */
+.about-container {
+  display: flex;
+  align-items: center; /* Vertically align the content */
+  justify-content: flex-start; /* Align the content to the left */
+  gap: 20px; /* Add some space between image and text */
+}
+
+.image-container {
+  flex-shrink: 0; /* Prevent image from shrinking */
+  max-width: 40%; /* Limit image width */
+  transform: scale(1.5); /* Scale the image to 1.5 times its original size */
+}
+
+.text-container {
+  flex-grow: 1; /* Allow the text container to take up remaining space */
+  font-size: 1.1em; /* Slightly larger text */
+  color: rgb(var(--gray-dark));
+}
+
+/* Image responsiveness */
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optional for rounded corners */
+}
+
+/* Style for the overall main content */
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 2em 1em;
+}
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="about-container">
+        <div class="image-container">
+          <img src="/src/content/abouts.gif" alt="Description of image" />
+        </div>
+        <div class="text-container">
+          <p style="color: #fff;">
+            Hi! I'm Rohn Maulawin, but you can call me Zurra. I'm a 17-year-old student studying at CIIT Senior High School.
+            <br><br>
+          </p>
+        </div>
+      </div>
+	   <div class="lower-container">
+	   <p>
+	   I'm creative and a multi-talented animator, illustrator, and storyteller with a strong background in character design, story development, and music production.
+          </p>
+          <p>
+            I'm also experienced in working on both independent and collaborative projects, drawing inspiration from renowned animation studios, films, and popular media.
+            
+        <br><br>
+            I pride myself on frame-by-frame and smooth animation/storyboards. I also take pride in my ability to easily conquer steep learning curves.
+		</p>
+	</main>
+    <Footer />
+  </body>
 </html>
