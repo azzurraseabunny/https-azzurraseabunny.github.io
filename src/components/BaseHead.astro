@@ -26,21 +26,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL.href} />
 
-<!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<title>Azzurra's Portfolio!</title>
+<meta name="title" content="Azzurra's Portfolio!" />
+<meta name="description" content="This took me a week to set up, guys. Please check it out!" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url.href} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url).href} />
+<meta property="og:url" content="https://azzurraseabunny.github.io" />
+<meta property="og:title" content="Azzurra's Portfolio!" />
+<meta property="og:description" content="This took me a week to set up, guys. Please check it out!" />
+<meta property="og:image" content="https://azzurraseabunny.github.io/blog-placeholder-1.jpg" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url.href} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url).href} />
+<meta property="twitter:url" content="https://azzurraseabunny.github.io" />
+<meta property="twitter:title" content="Azzurra's Portfolio!" />
+<meta property="twitter:description" content="This took me a week to set up, guys. Please check it out!" />
+<meta property="twitter:image" content="https://azzurraseabunny.github.io/blog-placeholder-1.jpg" />
+
