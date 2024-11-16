@@ -1,130 +1,127 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Hide the scrollbar */
-::-webkit-scrollbar {
-    width: 0px; /* Remove the scrollbar width */
-    height: 0px; /* For horizontal scrollbar, if any */
-}
-
-/* Optionally, hide the scrollbar track */
-::-webkit-scrollbar-track {
-    background: transparent; /* Make the track invisible */
-}
-
-/* Optionally, hide the scrollbar thumb */
-::-webkit-scrollbar-thumb {
-    background: transparent; /* Make the thumb invisible */
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: transparent; /* Keep it invisible on hover */
-}
-
-
-:root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow: 0 1px 3px rgba(var(--gray), 20%), 0 4px 12px rgba(var(--gray), 25%),
-		0 8px 16px rgba(var(--gray), 25%);
-}
-
+/* Add a scrolling checkerboard pattern */
 body {
-	font-family: 'Atkinson', "Lucida Console";
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	background-color: #342c28;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: #fff;
-	font-size: 18px; /* Slightly larger text */
-	line-height: 1.5; 
-	letter-spacing: 0.5px; 
+    font-family: 'Atkinson', "Lucida Console";
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    background-color: #342c28; /* Original background color */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    color: #fff;
+    font-size: 18px; /* Slightly larger text */
+    line-height: 1.5; 
+    letter-spacing: 0.5px;
+    background-image: 
+        repeating-linear-gradient(
+            0deg, 
+            rgba(30, 25, 20, 0.7) 0px, 
+            rgba(30, 25, 20, 0.7) 50px, 
+            rgba(52, 44, 40, 0.7) 50px, 
+            rgba(52, 44, 40, 0.7) 100px
+        ), 
+        repeating-linear-gradient(
+            90deg, 
+            rgba(30, 25, 20, 0.7) 0px, 
+            rgba(30, 25, 20, 0.7) 50px, 
+            rgba(52, 44, 40, 0.7) 50px, 
+            rgba(52, 44, 40, 0.7) 100px
+        ); /* Square checkerboard pattern */
+    background-attachment: fixed; /* Keep background fixed while scrolling */
+    background-size: 100px 100px; /* Ensure the squares are perfectly sized */
+    animation: scroll-pattern 30s linear infinite; /* Infinite scroll animation */
+}
+
+@keyframes scroll-pattern {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%; /* Moves background diagonally */
+    }
 }
 
 main {
-	width: 860px; /* Increased width for more content space */
-	max-width: calc(100% - 2em); /* Adjusted padding for larger width */
-	margin: auto;
-	padding: 3em 1em; /* Increased padding for better spacing */
+    width: 860px; /* Increased width for more content space */
+    max-width: calc(100% - 2em); /* Adjusted padding for larger width */
+    margin: auto;
+    padding: 3em 1em; /* Increased padding for better spacing */
 }
 
+/* Remaining styles */
 h1, h2, h3, h4, h5, h6 {
-	margin: 0 0 0.75rem 0; /* Slightly more space below headers */
-	color: rgb(var(--black));
-	line-height: 1.2;
+    margin: 0 0 0.75rem 0;
+    color: rgb(var(--black));
+    line-height: 1.2;
 }
 
 h1 {
-	font-size: 2.8em; /* Increased header sizes */
+    font-size: 2.8em;
 }
+
 h2 {
-	font-size: 2.4em;
+    font-size: 2.4em;
 }
+
 h3 {
-	font-size: 2em;
+    font-size: 2em;
 }
+
 h4 {
-	font-size: 1.8em;
+    font-size: 1.8em;
 }
+
 h5 {
-	font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 p {
-	margin-bottom: 1em; /* Slightly more spacing between paragraphs */
+    margin-bottom: 1em;
 }
 
 textarea, input {
-	font-size: 16px; /* Larger input and textarea text for readability */
+    font-size: 16px;
 }
 
 table {
-	width: 100%;
+    width: 100%;
 }
 
 img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 6px; /* Slightly larger corner radius */
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
 }
 
 code {
-	padding: 2px 6px; /* Increased padding for clarity */
-	background-color: rgb(var(--gray-light));
-	border-radius: 4px; /* More rounded corners */
+    padding: 2px 6px;
+    background-color: rgb(var(--gray-light));
+    border-radius: 4px;
 }
 
 pre {
-	padding: 1.5em; /* Increased padding for better readability */
-	border-radius: 6px; 
+    padding: 1.5em;
+    border-radius: 6px; 
 }
 
 blockquote {
-	border-left: 4px solid var(--accent); /* Thicker border for emphasis */
-	padding: 0 0 0 15px; /* Increased padding for spacing */
-	font-size: 1.2em; 
+    border-left: 4px solid var(--accent);
+    padding: 0 0 0 15px;
+    font-size: 1.2em;
 }
 
 hr {
-	border: none;
-	border-top: 2px solid rgb(var(--gray-light)); /* Thicker horizontal rule */
+    border: none;
+    border-top: 2px solid rgb(var(--gray-light));
 }
 
+/* Media Queries */
 @media (max-width: 720px) {
-	body {
-		font-size: 16px; 
-	}
-	main {
-		width: 90%; /* Ensure responsiveness on smaller screens */
-		padding: 1em; 
-	}
+    body {
+        font-size: 16px; 
+    }
+
+    main {
+        width: 90%;
+        padding: 1em; 
+    }
 }

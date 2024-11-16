@@ -10,9 +10,9 @@ import { SITE_TITLE } from '../consts';
 
 <nav>
   <div class="internal-links">
-    <HeaderLink href="/">Home</HeaderLink>
-    <HeaderLink href="/blog">WORKS</HeaderLink>
-    <HeaderLink href="/about">ABOUT</HeaderLink>
+    <HeaderLink href="/">About</HeaderLink>
+    <HeaderLink href="/blog">Works</HeaderLink>
+    <HeaderLink href="/about">idk</HeaderLink>
     <li>
       <a href="mailto:azzurraseabunny@gmail.com">Contact me here!</a>
     </li>
@@ -78,10 +78,6 @@ nav {
   margin: 0;
 }
 
-.internal-links li {
-  margin: 0 30px; /* Increased gap between buttons */
-}
-
 .internal-links a {
   padding: 0.25em 0.5em; /* Further reduced padding for even smaller buttons */
   color: white;
@@ -90,14 +86,16 @@ nav {
   text-decoration: none;
   display: block;
   font-size: 0.7em; /* Smaller font size */
-  transition: background-color 0.3s;
-  /* Scale button size with the screen */
+  transition: background-color 0.3s, transform 0.3s ease-in-out; /* Add transition for scaling */
   font-size: calc(0.7em + 0.3vw); /* Makes the font-size scale with the viewport width */
   padding: calc(0.2em - 0.3vw) calc(0.5em + 0.6vw); /* Adjust padding to scale with screen */
+  margin: 0 10px;
 }
 
+/* Hover effect: Grow the button */
 .internal-links a:hover {
   background-color: gray; /* Change background to gray on hover */
+  transform: scale(1.05); /* Scale the button to 110% of its original size */
 }
 
 @media (max-width: 768px) {

@@ -66,11 +66,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 }
 /* Image Container Styling */
       .abouting-container img {
+	    width: 30%; /* or a specific value like 500px */
+		height: auto; /* to maintain the aspect ratio */
         display: block;
         margin: 0 auto;
-        margin-bottom: 50px;
-        margin-top: 20px;
-		transform: translateY(40%)
+        margin-bottom: -30px;
+        margin-top: -10px;
+		transform: translateY(10%)
       }
 }
     </style>
@@ -78,7 +80,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   <body>
     <Header />
 	<div class="abouting-container">
-      <img src="/placeholders.gif" alt="Description of image" />
+      <img src="/title/about.gif" alt="Description of image" />
     </div>
     <main>
       <div class="about-container">
