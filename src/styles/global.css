@@ -1,3 +1,8 @@
+/* Make all text and images not selectable */
+body, * {
+    user-select: none; /* Disable text selection for all elements */
+}
+
 /* Add a scrolling checkerboard pattern */
 body {
     font-family: 'Atkinson', "Lucida Console";
@@ -36,6 +41,17 @@ body {
     
     /* Smooth infinite scroll animation */
     animation: scroll-pattern 10s linear infinite; 
+
+    /* Allow scrolling, but hide the scrollbar */
+    overflow: hidden; /* Hide both horizontal and vertical scrollbars */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar on Webkit browsers (e.g., Chrome, Safari) */
+}
+
+body {
+    overflow: scroll; /* Allow scrolling but keep the scrollbar hidden */
 }
 
 /* Keyframes for smooth scrolling */

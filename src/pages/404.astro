@@ -1,0 +1,80 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title="404 - Page Not Found" description="The page you're looking for doesn't exist." />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+        font-family: 'Arial', sans-serif;
+        color: #333;
+      }
+
+      .error-container {
+        text-align: center;
+        padding: 3.8em; /* Increased padding for larger margin effect */
+        margin: 2em; /* Bigger margin around the content */
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 6em; /* Larger font for emphasis */
+        margin-bottom: 0.5em;
+      }
+
+      p {
+        font-size: 1.5em; /* Slightly larger text */
+        margin-bottom: 1.5em;
+      }
+
+      a {
+        padding: 1em 2.5em; /* Bigger padding for the link */
+        background-color: #26211e;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.5em; /* Larger text for the link */
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #19191e;
+      }
+    </style>
+    <script>
+  // Function to play the sound
+  function playSound() {
+    // Add a unique timestamp query to the audio URL to bypass caching
+    const audio = new Audio(`/sounds/404.mp3?timestamp=${new Date().getTime()}`);
+    audio.play();
+  }
+
+  // Play sound when page is loaded or reloaded
+  window.addEventListener('load', () => {
+    playSound();
+  });
+</script>
+  </head>
+
+  <body>
+    <Header />
+    <div class="error-container">
+      <h1>404</h1>
+      <p>The page you're looking for doesn't exist.</p>
+      <a href="/">Go back to homepage</a>
+    </div>
+    <Footer />
+  </body>
+</html>

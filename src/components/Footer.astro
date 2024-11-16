@@ -1,10 +1,13 @@
 <footer class="footer-container">
     <div class="gif-container">
-      <div class="placeholder-box"></div>
-      <img src="/logos.gif" alt="Footer GIF" class="centered-gif" />
-	  <div class="placeholder-box"></div>
+        <div class="placeholder-box"></div>
+        <img src="/logos.gif" alt="Footer GIF" class="centered-gif" />
+        <div class="placeholder-box"></div>
     </div>
-  </footer>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-to-top-btn" id="scrollToTopBtn" style="display: none;">↑</button>
 
 <style>
 /* Basic Page Layout */
@@ -69,6 +72,60 @@ body {
 }
 
 main {
-    flex-grow: 1; /* Allows the content to take up remain
+    flex-grow: 1; /* Allows the content to take up remaining space */
+}
 
+/* Scroll-to-Top Button Styles */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 20px; /* Fixed distance from the bottom */
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    z-index: 10; /* Ensure it stays above the footer */
+}
+
+.scroll-to-top-btn:hover {
+    background-color: #0056b3;
+}
+
+.scroll-to-top-btn:focus {
+    outline: none;
+}
 </style>
+
+<script>
+    // Get the button
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+    // Hide the button by default
+    scrollToTopBtn.style.display = 'none';
+
+    // Show the button when scrolled down 200px from the top
+    window.onscroll = function() {
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = 'flex'; // Show the button
+        } else {
+            scrollToTopBtn.style.display = 'none'; // Hide the button
+        }
+    };
+
+    // Scroll to top when button is clicked
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
