@@ -11,65 +11,94 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
       /* Flexbox Layout for image and text container */
-.about-container {
-  display: flex;
-  align-items: center; /* Vertically align the content */
-  justify-content: flex-start; /* Align the content to the left */
-  gap: 20px; /* Add some space between image and text */
+:root {
+  --about-container-translate-y: 50%; /* Base vertical translation for about-container */
 }
 
-.image-container {
-  flex-shrink: 0; /* Prevent image from shrinking */
-  max-width: 40%; /* Limit image width */
-  transform: scale(1.5); /* Scale the image to 1.5 times its original size */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  transform: translateY(var(--about-container-translate-y) - 40) translateX(0%);
 }
 
 .text-container {
-  flex-grow: 1; /* Allow the text container to take up remaining space */
-  font-size: 1.1em; /* Slightly larger text */
-  color: rgb(var(--gray-dark));
+  flex-grow: 1; /* Allow the text to grow if needed */
+  font-size: 1.1em;
+  color: rgb(var(--white));
+  max-width: 60%;
+  display: flex; /* Enable flexbox for alignment */
+  flex-direction: column; /* Stack the text vertically */
+  justify-content: center; /* Center the text vertically within the container */
+  height: auto; /* Let the height adjust to content */
 }
 
-/* Image responsiveness */
 .image-container img {
-  width: 100%;
-  height: auto;
-  transform: translateY(-5%) translateX(-15%);
+  width: 100%; /* Responsive width for the image */
+  height: auto; /* Ensure the aspect ratio is maintained */
   border-radius: 8px; /* Optional for rounded corners */
+  max-height: 200px; /* Limit max height if necessary */
 }
 
-/* Style for the overall main content */
-main {
-  max-width: 600px;
-  margin: auto;
-  padding: 2em 1em;
+.image-container {
+  display: flex;
+  align-items: center; /* Align the image container's contents */
+  height: auto; /* Adjust based on the GIF */
+}
+
+.lower-container {
+  transform: translateY(calc(var(--about-container-translate-y) - 110px)); /* Adjust relative to about-container */
+  font-size: 1em;
+  color: white;
+  padding: 1em;
+}
+
+/* Adjust responsiveness */
+@media (max-width: 720px) {
+  :root {
+    --about-container-translate-y: 00%; /* Change the translation value for smaller screens */
+  }
+
+  .lower-container {
+    transform: translateY(calc(var(--about-container-translate-y) + 10px));
+  }
+}
+/* Image Container Styling */
+      .abouting-container img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        margin-top: 20px;
+		transform: translateY(40%)
+      }
 }
     </style>
   </head>
   <body>
     <Header />
+	<div class="abouting-container">
+      <img src="/placeholders.gif" alt="Description of image" />
+    </div>
     <main>
       <div class="about-container">
-        <div class="image-container">
-          <img src="/abouts.gif" alt="Description of image" />
-        </div>
-        <div class="text-container">
-          <p style="color: #fff;">
-            Hi! I'm Rohn Maulawin, but you can call me Zurra. I'm a 17-year-old student studying at CIIT Senior High School.
-            <br><br>
-          </p>
-        </div>
-      </div>
-	   <div class="lower-container">
-	   <p>
-	   I'm creative and a multi-talented animator, illustrator, and storyteller with a strong background in character design, story development, and music production.
-          </p>
-          <p>
-            I'm also experienced in working on both independent and collaborative projects, drawing inspiration from renowned animation studios, films, and popular media.
-            
-        <br><br>
-            I pride myself on frame-by-frame and smooth animation/storyboards. I also take pride in my ability to easily conquer steep learning curves.
-		</p>
+		  <div class="image-container">
+			<img src="/abouts.gif" alt="Description of image" />
+		  </div>
+		  <div class="text-container">
+			<p>
+			  Hi! I'm Rohn Maulawin, but you can call me Zurra. I'm a 17-year-old student studying at CIIT Senior High School.
+			</p>
+		  </div>
+		</div>
+		<div class="lower-container">
+		  <p>
+			I'm creative and a multi-talented animator, illustrator, and storyteller with a strong background in character design, story development, and music production.
+		  </p>
+		  <p>
+			I'm also experienced in working on both independent and collaborative projects, drawing inspiration from renowned animation studios, films, and popular media.
+		  </p>
+		</div>
 	</main>
     <Footer />
   </body>
