@@ -11,32 +11,40 @@ body {
     font-size: 18px; /* Slightly larger text */
     line-height: 1.5; 
     letter-spacing: 0.5px;
+
+    /* Define the checkerboard pattern with square blocks */
     background-image: 
         repeating-linear-gradient(
             0deg, 
-            rgba(30, 25, 20, 0.7) 0px, 
-            rgba(30, 25, 20, 0.7) 50px, 
+            rgba(40, 35, 30, 0.7) 0px,  /* Brighter darker square */
+            rgba(40, 35, 30, 0.7) 50px, 
             rgba(52, 44, 40, 0.7) 50px, 
             rgba(52, 44, 40, 0.7) 100px
         ), 
         repeating-linear-gradient(
             90deg, 
-            rgba(30, 25, 20, 0.7) 0px, 
-            rgba(30, 25, 20, 0.7) 50px, 
+            rgba(40, 35, 30, 0.7) 0px,  /* Brighter darker square */
+            rgba(40, 35, 30, 0.7) 50px, 
             rgba(52, 44, 40, 0.7) 50px, 
             rgba(52, 44, 40, 0.7) 100px
         ); /* Square checkerboard pattern */
-    background-attachment: fixed; /* Keep background fixed while scrolling */
+    
+    /* Ensure the background covers the entire page and stays fixed */
+    background-attachment: fixed;
     background-size: 100px 100px; /* Ensure the squares are perfectly sized */
-    animation: scroll-pattern 30s linear infinite; /* Infinite scroll animation */
+    background-position: 0 0; /* Start the pattern at the top left corner */
+    
+    /* Smooth infinite scroll animation */
+    animation: scroll-pattern 10s linear infinite; 
 }
 
+/* Keyframes for smooth scrolling */
 @keyframes scroll-pattern {
     0% {
-        background-position: 0 0;
+        background-position: 0 0; /* Start at the top left */
     }
     100% {
-        background-position: 100% 100%; /* Moves background diagonally */
+        background-position: 100px 100px; /* Move diagonally to the next set of squares */
     }
 }
 

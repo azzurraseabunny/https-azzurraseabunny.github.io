@@ -7,6 +7,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 <!doctype html>
 <html lang="en">
+<title>Azzurra's Portfolio!</title>
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
@@ -32,19 +33,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   flex-direction: column; /* Stack the text vertically */
   justify-content: center; /* Center the text vertically within the container */
   height: auto; /* Let the height adjust to content */
+  transform: translateY(20%) translateX(10%)
 }
 
 .image-container img {
   width: 100%; /* Responsive width for the image */
   height: auto; /* Ensure the aspect ratio is maintained */
   border-radius: 8px; /* Optional for rounded corners */
-  max-height: 200px; /* Limit max height if necessary */
+  max-height: 250px; /* Limit max height if necessary */
 }
 
 .image-container {
   display: flex;
   align-items: center; /* Align the image container's contents */
   height: auto; /* Adjust based on the GIF */
+  transform: translateY(20%) translateX(10%)
 }
 
 .lower-container {
@@ -65,15 +68,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   }
 }
 /* Image Container Styling */
-      .abouting-container img {
-	    width: 30%; /* or a specific value like 500px */
-		height: auto; /* to maintain the aspect ratio */
-        display: block;
-        margin: 0 auto;
-        margin-bottom: -30px;
-        margin-top: -10px;
-		transform: translateY(10%)
-      }
+.abouting-container img {
+    width: 500px; /* Set to a fixed width */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto;
+    margin-bottom: -30px;
+    margin-top: -10px;
+    transform: translateY(20%);
 }
     </style>
   </head>
@@ -89,16 +91,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		  </div>
 		  <div class="text-container">
 			<p>
-			  Hi! I'm Rohn Maulawin, but you can call me Zurra. I'm a 17-year-old student studying at CIIT Senior High School.
+			  Hi! I'm Rohn Maulawin, but you can call me Zurra, I'm a 17-year-old student studying at CIIT Senior High School.<br><br>I’m passionate about crafting and bringing ideas to life through thoughtful planning and creativity!
 			</p>
 		  </div>
 		</div>
 		<div class="lower-container">
 		  <p>
-			I'm creative and a multi-talented animator, illustrator, and storyteller with a strong background in character design, story development, and music production.
+			I'm creative and a multi-talented animator, illustrator, and storyteller with a strong background in character design, story development, and music production.<br><br>I'm also experienced in working on both independent and collaborative projects, drawing inspiration from renowned animation studios, films, and popular media.
 		  </p>
 		  <p>
-			I'm also experienced in working on both independent and collaborative projects, drawing inspiration from renowned animation studios, films, and popular media.
+			hi gays
 		  </p>
 		</div>
 	</main>
