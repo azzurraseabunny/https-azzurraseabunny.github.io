@@ -26,13 +26,14 @@ const posts = (await getCollection('blog')).sort(
       }
 
       /* Image Container Styling */
-      .image-container img {
-        display: block;
-        margin: 0 auto;
-        margin-bottom: 50px;
-        margin-top: 20px;
-        transform: translateY(40%);
-      }
+.portfolio-container img {
+  display: block; /* Ensures the image is treated as a block element */
+  margin: 0 auto; /* Centers the image horizontally */
+  margin-bottom: 0px; /* Removes bottom margin */
+  margin-top: 25px; /* Removes top margin */
+  width: 500px; /* Set a fixed width */
+  height: auto; /* Automatically adjust height to maintain aspect ratio */
+}
 
       /* Grid Layout for Posts */
       ul {
@@ -109,8 +110,8 @@ const posts = (await getCollection('blog')).sort(
   </head>
   <body>
     <Header />
-    <div class="image-container">
-      <img src="/placeholders.gif" alt="Description of image" />
+    <div class="portfolio-container">
+      <img src="/title/portfolio.gif" alt="Description of image" />
     </div>
     <main>
       <section>

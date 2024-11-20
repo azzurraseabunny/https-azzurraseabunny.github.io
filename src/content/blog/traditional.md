@@ -2,15 +2,125 @@
 title: 'Traditional'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 06 2022'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/portfolio/traditional/covering.png'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+<hr class="custom-line">
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+<div class="gallery-container">
+  <div class="image-container">
+    <img src="/portfolio/traditional/dancingladies.jpg" alt="Dancing Ladies (Watercolor, Color Pencil, Pen and Ink)" />
+    <div class="overlay">
+      <h3>Dancing Ladies</h3>
+      <p>Watercolor, Color Pencil, Pen and Ink</p>
+    </div>
+  </div>
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+  <div class="image-container">
+    <img src="/portfolio/traditional/hause.jpg" alt="House (Pen and Ink)" />
+    <div class="overlay">
+      <h3>House</h3>
+      <p>Pen and Ink</p>
+    </div>
+  </div>
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+  <div class="image-container">
+    <img src="/portfolio/traditional/venus.png" alt="Aggie (Adobe Fresco)" />
+    <div class="overlay">
+      <h3>Venus</h3>
+      <p>Graphite</p>
+    </div>
+  </div>
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+  <div class="image-container">
+    <img src="/portfolio/traditional/bitsandbones.jpg" alt="Persona (Clip Studio Paint)" />
+    <div class="overlay">
+      <h3>Bits and Bones</h3>
+      <p>Mixed Media</p>
+    </div>
+  </div>
+
+  <div class="image-container">
+    <img src="/portfolio/traditional/marg.jpg" alt="Bee Honeydew (Clip Studio Paint)" />
+    <div class="overlay">
+      <h3>Markiplier</h3>
+      <p>Charcoal</p>
+    </div>
+  </div>
+
+
+<hr class="custom-line">
+
+
+<style>
+.custom-line {
+  border: 0;
+  height: 6px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+  margin: 40px;
+}
+
+/* Gallery Container for 2-Column Layout */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+  gap: 20px; /* Space between grid items */
+  justify-items: center;
+  align-items: start; /* Align items to the top */
+  grid-auto-rows: minmax(200px, auto); /* Dynamic row height based on content */
+  margin: 0 20px; /* Margin around the container */
+}
+
+/* Single-column layout for mobile */
+@media (max-width: 768px) {
+  .gallery-container {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+  }
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%; /* Let the container resize freely */
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures the images scale without distortion */
+  display: block;
+  border-radius: 8px;
+}
+
+/* Overlay styling */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 1em;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.overlay p {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+}
+
+</style>
