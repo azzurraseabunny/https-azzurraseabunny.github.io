@@ -2,7 +2,7 @@
 title: 'Music'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 04 2022'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/portfolio/music/covering.png'
 ---
 # this is a work in progress!!
 you can find me on soundcloud with https://soundcloud.com/zurrabunny<br>

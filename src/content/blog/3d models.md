@@ -2,7 +2,7 @@
 title: '3D Models'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 05 2022'
-heroImage: '/portfolio/3d/metropolis3.png'
+heroImage: '/portfolio/3d/covering.png'
 ---
 
 <hr class="custom-line">
