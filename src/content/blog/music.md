@@ -36,44 +36,44 @@ while waiting, you can listen to these tracks i made!
     // Initialize multiple instances of the MusicPlayer
     document.addEventListener('DOMContentLoaded', () => {
       new MusicPlayer('music-player-1', {
-        audioSrc: '/portfolio/music/starstruck.mp3',
-        discSrc: '/portfolio/music/disc.png',
+        audioSrc: '../portfolio/music/starstruck.mp3',
+        discSrc: '../portfolio/music/disc.png',
         title: 'Starstruck',
       });
 
       new MusicPlayer('music-player-2', {
-        audioSrc: '/portfolio/music/Halcyon.ogg',
-        discSrc: '/portfolio/music/disc.png',
+        audioSrc: '../portfolio/music/Halcyon.ogg',
+        discSrc: '../portfolio/music/disc.png',
         title: 'Halcyon',
       });
 
       new MusicPlayer('music-player-3', {
-        audioSrc: '/portfolio/music/Scav.ogg',
-        discSrc: '/portfolio/music/disc.png',
+        audioSrc: '../portfolio/music/Scav.ogg',
+        discSrc: '../portfolio/music/disc.png',
         title: 'Scav',
       });
 	  
 	  new MusicPlayer('music-player-4', {
-        audioSrc: '/portfolio/music/wukong.mp3',
-        discSrc: '/portfolio/music/disc.png',
+        audioSrc: '../portfolio/music/wukong.mp3',
+        discSrc: '../portfolio/music/disc.png',
         title: 'Journey to the West',
       });
 	  
 	  new MusicPlayer('music-player-5', {
-        audioSrc: '/portfolio/music/chipdate.mp3',
-        discSrc: '/portfolio/music/disc.png',
+        audioSrc: '../portfolio/music/chipdate.mp3',
+        discSrc: '../portfolio/music/disc.png',
         title: 'Silly Date',
       });
 	  
 	  new MusicPlayer('music-player-6', {
-        audioSrc: '/portfolio/music/shortsandshores.mp3',
-        discSrc: '/portfolio/music/disc.png',
+        audioSrc: '../portfolio/music/shortsandshores.mp3',
+        discSrc: '../portfolio/music/disc.png',
         title: 'Shorts and Shores',
       });
 	  
 	  new MusicPlayer('music-player-7', {
-        audioSrc: '/portfolio/music/unholyseranata.ogg',
-        discSrc: '/portfolio/music/disc.png',
+        audioSrc: '../portfolio/music/unholyseranata.ogg',
+        discSrc: '../portfolio/music/disc.png',
         title: 'Unholy Serenata',
       });
     });
