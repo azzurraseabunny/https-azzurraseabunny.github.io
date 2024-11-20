@@ -81,3 +81,25 @@ heroImage: '/portfolio/animation/duckass.gif'
   gap: 20px; /* Space between grid items */
   justify-items: center;
  
+/* Single-column layout for mobile */
+@media (max-width: 768px) {
+  .gallery-container {
+    grid-template-columns: 1fr; /* Single column for screens smaller than 768px */
+  }
+}
+
+.image-container {
+  position: relative;
+  width: 100%; /* Full width within the grid */
+  max-width: 400px; /* Limit maximum width for better visuals */
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}

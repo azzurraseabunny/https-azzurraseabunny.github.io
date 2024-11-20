@@ -74,66 +74,73 @@ heroImage: '/portfolio/layout/covering.png'
 </div>
 
 <style>
+/* General Styling */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Custom line divider */
 .custom-line {
-    border: 0;
-    height: 6px;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
-    margin: 40px ;
+  border: 0;
+  height: 6px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+  margin: 40px;
 }
 
 /* Gallery Layout */
 .gallery-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 20px; /* Adjust the space between images */
-  justify-items: center;
-  transform: translateX(-15%);
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+  gap: 20px;
+  justify-items: center; /* Center individual items in each grid cell */
+  padding: 20px;
+  max-width: 1200px; /* Set a max width to keep the gallery layout neat */
+  margin: 0 auto; /* Center the gallery container on the x-axis */
+  transform: translateX(-17%);
 }
+
 
 .image-container {
   position: relative;
-  width: 300px; /* Fixed width for each image */
-  height: 200px; /* Fixed height for each image */
-  overflow: hidden; /* Ensures the overlay stays within the image boundaries */
-  cursor: pointer; /* Adds a pointer cursor to indicate it's clickable */
-  transition: transform 0.3s ease-out; /* Smooth transition for hover effect */
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
 }
 
 .image-container img {
-  width: 100%; /* Make the image fill the container */
+  width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image covers the entire container without distortion */
-  border-radius: 8px; /* Optional: rounded corners */
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-/* Hover effect to enlarge the image slightly with backOut effect */
-.image-container img:hover {
-  transform: scale(1.02); /* Slight scaling effect */
-}
-
-/* The overlay with title and description */
+/* Overlay for hover effect */
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8); /* Dark background for text */
+  background: rgba(0, 0, 0, 0.8);
   color: white;
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s ease; /* Smooth transition for fade-in effect */
+  opacity: 0;
+  transition: opacity 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
-  pointer-events: none; /* Allow clicks to pass through the overlay */
+  pointer-events: none;
 }
 
 .overlay h3 {
-  font-size: 20px;
-  margin: 10px 0;
+  font-size: 18px;
+  margin: 5px 0;
 }
 
 .overlay p {
@@ -142,9 +149,10 @@ heroImage: '/portfolio/layout/covering.png'
 }
 
 .image-container:hover .overlay {
-  opacity: 1; /* Fade in overlay when hovering over the image */
+  opacity: 1;
 }
 
+/* Modal Styling */
 .modal {
   display: none;
   position: fixed;
@@ -153,11 +161,11 @@ heroImage: '/portfolio/layout/covering.png'
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Background dark overlay */
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background overlay */
   justify-content: center;
   align-items: center;
-  opacity: 0; /* Start with zero opacity (hidden) */
-  transition: opacity 0.2s ease; /* Fade in/out transition */
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .modal-content {
@@ -178,6 +186,38 @@ heroImage: '/portfolio/layout/covering.png'
   cursor: pointer;
   z-index: 2;
 }
+
+/* Responsive Layout for Mobile */
+@media (max-width: 768px) {
+  .gallery-container {
+    grid-template-columns: 1fr; /* Single-column layout for mobile */
+    gap: 15px;
+    padding: 10px;
+	transform: translateX(0%);
+  }
+
+  .image-container {
+    width: 100%; /* Full width for mobile */
+    height: auto;
+  }
+
+  /* Hide the modal for mobile */
+  .modal {
+    display: none;
+  }
+}
+
+/* Smaller Mobile Devices */
+@media (max-width: 480px) {
+  .overlay h3 {
+    font-size: 14px;
+  }
+
+  .overlay p {
+    font-size: 10px;
+  }
+}
+
 
 </style>
 

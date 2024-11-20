@@ -25,7 +25,7 @@ html, body {
     text-align: center;
     background-color: #26211e;
     color: var(--color-main);
-    z-index: 1;
+    z-index: -1; /* Move the footer behind all other elements */
     margin-top: 50px; /* Lower the footer by adding top margin */
     flex-shrink: 0; /* Prevent the footer from shrinking */
 }
@@ -103,6 +103,7 @@ main {
 .scroll-to-top-btn:focus {
     outline: none;
 }
+
 </style>
 
 <script>
