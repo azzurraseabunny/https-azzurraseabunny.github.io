@@ -9,7 +9,7 @@ you can find me on soundcloud with https://soundcloud.com/zurrabunny<br>
 you dont know how hard it is making a custom music player...<br>
 while waiting, you can listen to these tracks i made!
 
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
