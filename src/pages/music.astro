@@ -1,0 +1,127 @@
+---
+// This is your Astro component file, for example: AudioPlayer.astro
+const audioSrc = "/audio/music/starstruck.mp3"; // Replace with your actual audio file path
+const title = "My Music Track";
+---
+
+<style>
+  .audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  button {
+    background: #1db954;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background: #1ed760;
+  }
+
+  .progress-bar input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .progress-bar span {
+    color: #bbb;
+  }
+
+  .volume-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+</style>
+
+<div class="audio-player">
+  <h2>{title}</h2>
+
+  <!-- Audio Element -->
+  <audio id="audio" src={audioSrc} preload="metadata"></audio>
+
+  <!-- Play/Pause Button -->
+  <div class="controls">
+    <button id="playPauseBtn">Play</button>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <input id="progress" type="range" min="0" value="0" step="1" />
+      <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+    </div>
+
+    <!-- Volume Control -->
+    <input id="volume" type="range" class="volume-bar" min="0" max="1" step="0.01" value="1" />
+  </div>
+</div>
+
+<script>
+  const audio = document.getElementById('audio');
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const progress = document.getElementById('progress');
+  const currentTimeDisplay = document.getElementById('current-time');
+  const durationDisplay = document.getElementById('duration');
+  const volumeControl = document.getElementById('volume');
+
+  // Play or pause the audio
+  playPauseBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playPauseBtn.textContent = 'Pause';
+    } else {
+      audio.pause();
+      playPauseBtn.textContent = 'Play';
+    }
+  });
+
+  // Update the progress bar as the audio plays
+  audio.addEventListener('timeupdate', () => {
+    const currentTime = audio.currentTime;
+    const duration = audio.duration;
+    progress.value = currentTime;
+    currentTimeDisplay.textContent = formatTime(currentTime);
+    durationDisplay.textContent = formatTime(duration);
+  });
+
+  // Seek functionality
+  progress.addEventListener('input', () => {
+    audio.currentTime = progress.value;
+  });
+
+  // Update the volume
+  volumeControl.addEventListener('input', () => {
+    audio.volume = volumeControl.value;
+  });
+
+  // Format the time in minutes:seconds
+  function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+  }
+
+  // Set the duration once the audio is loaded
+  audio.addEventListener('loadedmetadata', () => {
+    progress.max = audio.duration;
+    durationDisplay.textContent = formatTime(audio.duration);
+  });
+</script>

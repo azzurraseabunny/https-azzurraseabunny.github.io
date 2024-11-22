@@ -5,7 +5,7 @@ pubDate: 'Jul 04 2022'
 heroImage: '/portfolio/music/covering.png'
 ---
 
-<meta http-equiv="refresh" content="3; url=/music-page" />
+<meta http-equiv="refresh" content="3; url=/music" />
 
 # Redirecting to music page...
 

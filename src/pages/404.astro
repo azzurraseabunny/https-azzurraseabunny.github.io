@@ -57,7 +57,7 @@ import Footer from '../components/Footer.astro';
   // Function to play the sound
   function playSound() {
     // Add a unique timestamp query to the audio URL to bypass caching
-    const audio = new Audio(`/sounds/404.mp3?timestamp=${new Date().getTime()}`);
+    const audio = new Audio(`/audio/404.mp3?timestamp=${new Date().getTime()}`);
     audio.play();
   }
 
@@ -71,8 +71,8 @@ import Footer from '../components/Footer.astro';
   <body>
     <div class="error-container">
       <h1>404</h1>
-      <p>The page you're looking for doesn't exist.</p>
-      <a href="/">Go back to homepage</a>
+      <p>Whatever you're looking for, It's not here!</p>
+      <a href="/">Take me home..</a>
     </div>
   </body>
 </html>
