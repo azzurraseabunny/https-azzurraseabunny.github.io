@@ -1,8 +1,58 @@
 ---
-// This is your Astro component file, for example: AudioPlayer.astro
-const audioSrc = "/audio/music/starstruck.mp3"; // Replace with your actual audio file path
-const title = "My Music Track";
+import Layout from '../layouts/BlogPost.astro';
+
+// Define the tracks with their titles, audio sources, and cover images
+const tracks = [
+  {
+    title: "Starstruck",
+    src: "/audio/music/starstruck.mp3", // Replace with your actual audio file path
+    cover: "/audio/music/disc.png", // Optional, if you want to show an image for the track
+  },
+  {
+    title: "Halcyon",
+    src: "/audio/music/Halcyon.ogg",
+    cover: "/audio/music/disc.png",
+  },
+  {
+    title: "Scav",
+    src: "/audio/music/Scav.ogg",
+    cover: "/audio/music/disc.png",
+  }
+  // Add more tracks here as needed
+];
 ---
+
+<Layout
+  title="About Me"
+  description="Lorem ipsum dolor sit amet"
+  pubDate={new Date('August 08 2021')}
+  heroImage="/blog-placeholder-1.jpg"
+>
+
+<!-- Audio Player Section -->
+<div class="audio-player">
+  {tracks.map((track, index) => (
+    <div class="track-item" key={index}>
+      <div class="track-info">
+        <img class="track-cover" src={track.cover} alt="Track Cover" />
+        <h2 class="track-title">{track.title}</h2><br>
+      </div>
+      <audio class="audio-element" src={track.src} preload="metadata"></audio>
+      <div class="controls">
+        <button class="playPauseBtn">Play</button>
+        <div class="progress-bar">
+          <input class="progress" type="range" min="0" value="0" step="1" />
+          <span class="current-time">0:00</span> / <span class="duration">0:00</span>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<div class="global-volume-control">
+  <label for="global-volume">Volume</label>
+  <input id="global-volume" type="range" min="0" max="1" step="0.01" value="1" orient="vertical" />
+</div>
 
 <style>
   .audio-player {
@@ -12,116 +62,194 @@ const title = "My Music Track";
     background: #222;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
     color: white;
     font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .track-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #333;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .track-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+  .track-cover {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+
+  .track-title {
+    color: white;
+    font-size: 1.2rem;
   }
 
   .controls {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-top: 10px;
-  }
-
-  button {
-    background: #1db954;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-
-  button:hover {
-    background: #1ed760;
+    gap: 10px;
+    flex-shrink: 0;
   }
 
   .progress-bar input {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .progress-bar span {
-    color: #bbb;
+    width: 100px;
   }
 
   .volume-bar {
-    width: 100%;
-    margin-top: 10px;
+    width: 80px;
+  }
+
+  .playPauseBtn {
+    background-color: #1db954;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 5px;
+  }
+
+  .playPauseBtn:hover {
+    background-color: #1ed760;
+  }
+
+  .global-volume-control {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #333;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
+  .global-volume-control label {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+
+  .global-volume-control input[type="range"] {
+    writing-mode: bt-lr; /* Ensures vertical orientation */
+    -webkit-appearance: slider-vertical;
+    width: 8px;
+    height: 150px;
+    background: #222;
+    border-radius: 5px;
+    outline: none;
+    margin: 0;
+  }
+
+  .global-volume-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #1db954;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .global-volume-control input[type="range"]::-moz-range-thumb {
+    background: #1db954;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
   }
 </style>
 
-<div class="audio-player">
-  <h2>{title}</h2>
+</style>
 
-  <!-- Audio Element -->
-  <audio id="audio" src={audioSrc} preload="metadata"></audio>
+<script client:load>
+  const playPauseBtns = document.querySelectorAll('.playPauseBtn');
+  const progressBars = document.querySelectorAll('.progress');
+  const currentTimeDisplays = document.querySelectorAll('.current-time');
+  const durationDisplays = document.querySelectorAll('.duration');
+  const audioElements = document.querySelectorAll('.audio-element');
+  const globalVolumeControl = document.getElementById('global-volume');
 
-  <!-- Play/Pause Button -->
-  <div class="controls">
-    <button id="playPauseBtn">Play</button>
-
-    <!-- Progress Bar -->
-    <div class="progress-bar">
-      <input id="progress" type="range" min="0" value="0" step="1" />
-      <span id="current-time">0:00</span> / <span id="duration">0:00</span>
-    </div>
-
-    <!-- Volume Control -->
-    <input id="volume" type="range" class="volume-bar" min="0" max="1" step="0.01" value="1" />
-  </div>
-</div>
-
-<script>
-  const audio = document.getElementById('audio');
-  const playPauseBtn = document.getElementById('playPauseBtn');
-  const progress = document.getElementById('progress');
-  const currentTimeDisplay = document.getElementById('current-time');
-  const durationDisplay = document.getElementById('duration');
-  const volumeControl = document.getElementById('volume');
-
-  // Play or pause the audio
-  playPauseBtn.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play();
-      playPauseBtn.textContent = 'Pause';
-    } else {
-      audio.pause();
-      playPauseBtn.textContent = 'Play';
-    }
-  });
-
-  // Update the progress bar as the audio plays
-  audio.addEventListener('timeupdate', () => {
-    const currentTime = audio.currentTime;
-    const duration = audio.duration;
-    progress.value = currentTime;
-    currentTimeDisplay.textContent = formatTime(currentTime);
-    durationDisplay.textContent = formatTime(duration);
-  });
-
-  // Seek functionality
-  progress.addEventListener('input', () => {
-    audio.currentTime = progress.value;
-  });
-
-  // Update the volume
-  volumeControl.addEventListener('input', () => {
-    audio.volume = volumeControl.value;
-  });
-
-  // Format the time in minutes:seconds
+  // Function to format time in MM:SS
   function formatTime(time) {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
   }
 
-  // Set the duration once the audio is loaded
-  audio.addEventListener('loadedmetadata', () => {
-    progress.max = audio.duration;
-    durationDisplay.textContent = formatTime(audio.duration);
+  // Pause other tracks when one is played
+  function pauseAllTracks(exceptIndex) {
+    audioElements.forEach((audio, index) => {
+      if (index !== exceptIndex) {
+        audio.pause();
+        playPauseBtns[index].textContent = 'Play';
+      }
+    });
+  }
+
+  // Update volume for all audio elements
+  globalVolumeControl.addEventListener('input', () => {
+    const volume = globalVolumeControl.value;
+    audioElements.forEach(audio => {
+      audio.volume = volume;
+    });
+  });
+
+  // Initialize audio elements
+  audioElements.forEach((audio, index) => {
+    const playPauseBtn = playPauseBtns[index];
+    const progressBar = progressBars[index];
+    const currentTimeDisplay = currentTimeDisplays[index];
+    const durationDisplay = durationDisplays[index];
+
+    playPauseBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        pauseAllTracks(index); // Pause all other tracks
+        audio.play();
+        playPauseBtn.textContent = 'Pause';
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = 'Play';
+      }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      const currentTime = audio.currentTime;
+      const duration = audio.duration;
+      progressBar.value = currentTime;
+      currentTimeDisplay.textContent = formatTime(currentTime);
+      durationDisplay.textContent = formatTime(duration);
+    });
+
+    progressBar.addEventListener('input', () => {
+      audio.currentTime = progressBar.value;
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      durationDisplay.textContent = formatTime(audio.duration);
+      progressBar.max = audio.duration;
+    });
   });
 </script>
+
+
+</Layout>
