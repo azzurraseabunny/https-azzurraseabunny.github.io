@@ -1,8 +1,18 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
 
 // Define the tracks with their titles, audio sources, and cover images
 const tracks = [
+  {
+    title: "Study Time",
+    src: "/audio/music/StudyTim.mp3",
+    cover: "/audio/music/disc.png",
+  },
   {
     title: "Starstruck",
     src: "/audio/music/starstruck.mp3", // Replace with your actual audio file path
@@ -34,11 +44,6 @@ const tracks = [
     cover: "/audio/music/disc.png",
   },
   {
-    title: "Study Time",
-    src: "/audio/music/Study Tim.pm3",
-    cover: "/audio/music/disc.png",
-  },
-  {
     title: "Azure",
     src: "/audio/music/Azure.mp3",
     cover: "/audio/music/disc.png",
@@ -58,17 +63,15 @@ const tracks = [
 ];
 ---
 
-<Layout
-  title="About Me"
-  description="Lorem ipsum dolor sit amet"
-  pubDate={new Date('August 08 2021')}
-  heroImage="/blog-placeholder-1.jpg"
->
+<body>
+		<Header />
+		<main>
+			<article>
 
 <!-- Audio Player Section -->
 <div class="audio-player">
   {tracks.map((track, index) => (
-    <div class="track-item" key={index}>
+    <div class="track-item" key={index} onClick="selectTrack(${index})">
       <div class="track-info">
         <img class="track-cover" src={track.cover} alt="Track Cover" />
         <h2 class="track-title">{track.title}</h2><br>
@@ -85,24 +88,57 @@ const tracks = [
   ))}
 </div>
 
-<div class="global-volume-control">
-  <label for="global-volume">Volume</label>
-  <input id="global-volume" type="range" min="0" max="1" step="0.01" value="1" orient="vertical" />
+<!-- Album Display Box -->
+<div class="album-display">
+  <img id="album-cover" src="" alt="Album Cover" class="album-cover"/>
+  <h2 id="album-title" class="album-title">still a wip!</h2>
 </div>
+
+</article>
+		</main>
+		<Footer />
+	</body>
 
 <style>
   .audio-player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #222;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: auto;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #222;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+}
+
+.album-display {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  text-align: center;
+}
+
+.album-cover {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.album-title {
+  margin-top: 10px;
+  color: white;
+  font-size: 1.2rem;
+}
+
 
   .track-item {
     display: flex;
@@ -241,77 +277,95 @@ const tracks = [
 </style>
 
 <script client:load>
-  const playPauseBtns = document.querySelectorAll('.playPauseBtn');
-  const progressBars = document.querySelectorAll('.progress');
-  const currentTimeDisplays = document.querySelectorAll('.current-time');
-  const durationDisplays = document.querySelectorAll('.duration');
-  const audioElements = document.querySelectorAll('.audio-element');
-  const globalVolumeControl = document.getElementById('global-volume');
+// Get all play/pause buttons and audio elements
+const playPauseBtns = document.querySelectorAll('.playPauseBtn');
+const audioElements = document.querySelectorAll('.audio-element');
 
-  // Function to format time in MM:SS
-  function formatTime(time) {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-  }
+// Function to format time in MM:SS
+function formatTime(time) {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+}
 
-  // Pause other tracks
-  function pauseAllTracks(exceptIndex) {
-    audioElements.forEach((audio, index) => {
-      if (index !== exceptIndex) {
-        audio.pause();
-        playPauseBtns[index].textContent = 'Play';
-      }
-    });
-  }
-
-  // Update volume for all audio elements
-  globalVolumeControl.addEventListener('input', () => {
-    const volume = globalVolumeControl.value;
-    audioElements.forEach(audio => {
-      audio.volume = volume;
-    });
-  });
-
-  // Initialize audio elements
+// Function to pause all tracks except the selected one
+function pauseAllTracks(exceptIndex) {
   audioElements.forEach((audio, index) => {
-    const playPauseBtn = playPauseBtns[index];
-    const progressBar = progressBars[index];
-    const currentTimeDisplay = currentTimeDisplays[index];
-    const durationDisplay = durationDisplays[index];
-
-    playPauseBtn.addEventListener('click', () => {
-      if (audio.paused) {
-        pauseAllTracks(index); // Pause all other tracks
-        audio.play();
-        playPauseBtn.textContent = 'Pause';
-      } else {
-        audio.pause();
-        playPauseBtn.textContent = 'Play';
-      }
-    });
-
-    audio.addEventListener('timeupdate', () => {
-      const currentTime = audio.currentTime;
-      const duration = audio.duration;
-      progressBar.value = currentTime;
-      currentTimeDisplay.textContent = formatTime(currentTime);
-      durationDisplay.textContent = formatTime(duration);
-    });
-
-    progressBar.addEventListener('input', () => {
-      audio.currentTime = progressBar.value;
-    });
-
-    audio.addEventListener('loadedmetadata', () => {
-      durationDisplay.textContent = formatTime(audio.duration);
-      progressBar.max = audio.duration;
-    });
-
-    audio.addEventListener('ended', () => {
-      playPauseBtn.textContent = 'Play';
-    });
+    if (index !== exceptIndex) {
+      audio.pause();
+      playPauseBtns[index].textContent = 'Play';
+    }
   });
+}
+
+// Function to handle play/pause and update album display
+function selectTrack(index) {
+  const track = tracks[index];
+  const albumCover = document.getElementById('album-cover');
+  const albumTitle = document.getElementById('album-title');
+  const audio = audioElements[index];
+  const playPauseBtn = playPauseBtns[index];
+
+  // Update album display
+  albumCover.src = track.cover;
+  albumTitle.textContent = track.title;
+
+  // Pause all other tracks and play the selected one
+  pauseAllTracks(index);
+
+  if (audio.paused) {
+    audio.play();
+    playPauseBtn.textContent = 'Pause';
+  } else {
+    audio.pause();
+    playPauseBtn.textContent = 'Play';
+  }
+}
+
+// Event listener for play/pause buttons
+playPauseBtns.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    const audio = audioElements[index];
+    const playPauseBtn = playPauseBtns[index];
+    if (audio.paused) {
+      pauseAllTracks(index);
+      audio.play();
+      playPauseBtn.textContent = 'Pause';
+    } else {
+      audio.pause();
+      playPauseBtn.textContent = 'Play';
+    }
+  });
+});
+
+// Function to update progress bar
+audioElements.forEach((audio, index) => {
+  const progressBar = document.querySelectorAll('.progress')[index];
+  const currentTimeDisplay = document.querySelectorAll('.current-time')[index];
+  const durationDisplay = document.querySelectorAll('.duration')[index];
+
+  audio.addEventListener('timeupdate', () => {
+    const currentTime = audio.currentTime;
+    const duration = audio.duration;
+    progressBar.value = currentTime;
+    currentTimeDisplay.textContent = formatTime(currentTime);
+    durationDisplay.textContent = formatTime(duration);
+  });
+
+  progressBar.addEventListener('input', () => {
+    audio.currentTime = progressBar.value;
+  });
+
+  audio.addEventListener('loadedmetadata', () => {
+    durationDisplay.textContent = formatTime(audio.duration);
+    progressBar.max = audio.duration;
+  });
+
+  audio.addEventListener('ended', () => {
+    playPauseBtn.textContent = 'Play';
+  });
+});
+
 </script>
 
 </Layout>
