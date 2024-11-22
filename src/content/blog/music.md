@@ -29,7 +29,8 @@ while waiting, you can listen to these tracks i made!
   <div id="music-player-7"></div><br>
   
 
-  <script type="module" src="/src/components/MusicPlayer.js"></script>
+  <script src="/src/components/MusicPlayer.js" defer></script>
+
   <script type="module">
     import { MusicPlayer } from '/src/components/MusicPlayer.js';
 
