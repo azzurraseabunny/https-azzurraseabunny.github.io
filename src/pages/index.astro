@@ -8,103 +8,196 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
 
 <!doctype html>
 <html lang="en">
-<title>Azzurra's Portfolio!</title>
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
+	/* Image Container Styling */
+.portfolio-container img {
+  display: block; /* Ensures the image is treated as a block element */
+  margin: 0 auto; /* Centers the image horizontally */
+  margin-bottom: 0px; /* Removes bottom margin */
+  margin-top: 25px; /* Removes top margin */
+  width: 500px; /* Set a fixed width */
+  height: auto; /* Automatically adjust height to maintain aspect ratio */
+}
+
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        justify-content: space-between; /* Ensures footer stays at the bottom */
+        align-items: center; /* Centers content horizontally */
+      }
+
+      header {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        width: 100%; /* Ensure it spans across the width */
+      }
+
+      /* Main Content Area */
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center everything horizontally */
+        flex-grow: 1; /* Make sure the content takes available space */
+        padding: 20px;
+        width: 100%; /* Ensure the content doesn't stretch wider than the screen */
+      }
+
       /* Flexbox Layout for image and text container */
-:root {
-  --about-container-translate-y: 50%; /* Base vertical translation for about-container */
-}
+      .about-container {
+        display: flex;
+        gap: 20px;
+        justify-content: center; /* Center the content horizontally */
+        align-items: center;
+        margin-bottom: 40px; /* Add space before lower section */
+        width: 80%; /* Make the about container not stretch full width */
+      }
 
-.about-container {
+      .text-container {
+        font-size: 1.1em;
+        max-width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        border-radius: 8px;
+      }
+
+      .lower-container {
+        font-size: 1em;
+        color: white;
+        padding: 1em;
+        background-color: #333;
+        margin-bottom: 40px; /* Add space before card rows */
+        width: 80%; /* Limit the width for better readability */
+        text-align: center; /* Center text inside this container */
+		border-radius: 15px; /* Add rounded corners */
+      }
+
+      /* Card Row Styling */
+      .card-row {
+        display: flex;
+        justify-content: center; /* Center cards horizontally */
+        gap: 20px;
+        width: 80%;
+        margin-bottom: 30px;
+        flex-wrap: wrap; /* Allow cards to wrap onto new rows if needed */
+      }
+
+      .card {
+  background: #333;
+  padding: 15px;
+  text-align: center;
+  width: 30%;
+  min-width: 250px; /* Set a minimum width for better responsiveness */
+  flex: 1 1 auto;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
-  transform: translateY(var(--about-container-translate-y) - 40) translateX(0%);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center content inside cards */
+  border-radius: 15px; /* Add rounded corners */
 }
 
-.text-container {
-  flex-grow: 1; /* Allow the text to grow if needed */
-  font-size: 1.1em;
-  color: rgb(var(--white));
-  max-width: 60%;
-  display: flex; /* Enable flexbox for alignment */
-  flex-direction: column; /* Stack the text vertically */
-  justify-content: center; /* Center the text vertically within the container */
-  height: auto; /* Let the height adjust to content */
-  transform: translateY(20%) translateX(10%)
-}
+      .card h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+		color: white;
+      }
 
-.image-container img {
-  width: 100%; /* Responsive width for the image */
-  height: auto; /* Ensure the aspect ratio is maintained */
-  border-radius: 8px; /* Optional for rounded corners */
-  max-height: 250px; /* Limit max height if necessary */
-}
+      .card p {
+        font-size: 1em;
+        color: white;
+      }
 
-.image-container {
-  display: flex;
-  align-items: center; /* Align the image container's contents */
-  height: auto; /* Adjust based on the GIF */
-  transform: translateY(20%) translateX(10%)
-}
-
-.lower-container {
-  transform: translateY(calc(var(--about-container-translate-y) - 110px)); /* Adjust relative to about-container */
-  font-size: 1em;
-  color: white;
-  padding: 1em;
-}
-
-/* Adjust responsiveness */
-@media (max-width: 720px) {
-  :root {
-    --about-container-translate-y: 00%; /* Change the translation value for smaller screens */
-  }
-
-  .lower-container {
-    transform: translateY(calc(var(--about-container-translate-y) + 10px));
-  }
-}
-/* Image Container Styling */
-.abouting-container img {
-    width: 500px; /* Set to a fixed width */
-    height: auto; /* Maintain aspect ratio */
-    display: block;
-    margin: 0 auto;
-    margin-bottom: -30px;
-    margin-top: -10px;
-    transform: translateY(20%);
-}
+      /* Footer Styling */
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        width: 100%; /* Ensure footer spans across full width */
+      }
     </style>
   </head>
   <body>
     <Header />
-	<div class="abouting-container">
+	<div class="portfolio-container">
       <img src="/title/about.gif" alt="Description of image" />
     </div>
     <main>
+      <!-- About Section -->
       <div class="about-container">
-		  <div class="image-container">
-			<img src="/abouts.gif" alt="Description of image" />
-		  </div>
-		  <div class="text-container">
-			<p>
-			  Hi! I'm Rohn Maulawin, but you can call me Zurra, I'm a 17-year-old student studying at CIIT Senior High School.<br><br>I’m passionate about crafting and bringing ideas to life through thoughtful planning and creativity!
-			</p>
-		  </div>
-		</div>
-		<div class="lower-container">
-		  <p>
-			I'm creative and a multi-talented animator, illustrator, and storyteller with a strong background in character design, story development, and music production.<br><br>I'm also experienced in working on both independent and collaborative projects, drawing inspiration from renowned animation studios, films, and popular media.
-		  </p>
-		  <p>
-		  </p>
-		</div>
-	</main>
-	<!-- <CardFeature /> -->
+        <div class="image-container">
+          <img src="/abouts.gif" alt="Description of image" />
+        </div>
+        <div class="text-container">
+          <p>
+            Hi! I'm Rohn Maulawin, but you can call me Zurra, I'm a 17-year-old student studying at CIIT Senior High School.<br><br>
+            I’m passionate about crafting and bringing ideas to life through thoughtful planning and creativity!
+          </p>
+        </div>
+      </div>
+      <div class="lower-container">
+        <p>
+          I'm creative and a multi-talented animator, illustrator, and storyteller with a strong background in character design, story development, and music production.<br><br>
+          I'm also experienced in working on both independent and collaborative projects, drawing inspiration from renowned animation studios, films, and popular media.
+        </p>
+      </div>
+
+      <!-- Card Rows Section -->
+      <div class="card-row">
+        <div class="card">
+          <h3>Hard Skills</h3>
+	  Expert :<br>
+      2D Animation<br>
+      Storyboard &
+      Compositing<br>
+      Character Design<br>
+      Concept Art<br>
+      Sound Design<br>
+      Character Animation<br>
+      Art<br>
+      Music Composition<br><br>
+      Proficient :<br>
+      Graphic Design<br>
+      Motion Graphics<br>
+      Music Production<br>
+      3D Modelling<br><br>
+      Novice :<br>
+      Game Programming<br>
+	  Website Programming
+        </div>
+        <div class="card">
+          <h3>Soft Skills</h3>
+           Strong work ethic<br>
+      Communication<br>
+      Adaptability<br>
+      Emotional Intelligence<br>
+      Creativity<br>
+      Ability to work under pressure<br>
+      Conflict Resolution<br>
+      Problem Solving<br>
+      Responsibility<br>
+      Self-Motivation<br>
+      Leadership<br>
+      Determined<br>
+        </div>
+      </div>
+    </main>
     <Footer />
   </body>
 </html>

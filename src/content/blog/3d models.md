@@ -109,6 +109,8 @@ heroImage: '/portfolio/3d/covering.png'
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease-out;
+  backdrop-filter: blur(10px);
+  
 }
 
 .image-container img {
@@ -117,6 +119,7 @@ heroImage: '/portfolio/3d/covering.png'
   object-fit: cover; /* Ensures the images scale without distortion */
   display: block;
   border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 /* Overlay styling */
