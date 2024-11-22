@@ -29,10 +29,10 @@ while waiting, you can listen to these tracks i made!
   <div id="music-player-7"></div><br>
   
 
-  <script src="/scripts/MusicPlayer.js" defer></script>
+  <script src="/components/MusicPlayer.jsx" defer></script>
 
   <script type="module">
-    import { MusicPlayer } from '/src/scripts/MusicPlayer.js';
+    import { MusicPlayer } from '/src/components/MusicPlayer.jsx';
 
     // Initialize multiple instances of the MusicPlayer
     document.addEventListener('DOMContentLoaded', () => {
