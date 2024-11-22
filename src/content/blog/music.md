@@ -9,4 +9,4 @@ heroImage: '/portfolio/music/covering.png'
 
 # Redirecting to music page...
 
-You will be redirected shortly. If you are not redirected, [click here](https://yourwebsite.com/music-page).
+You will be redirected shortly. If you are not redirected, [click here](https://azzurraseabunny.github.io/music).
