@@ -5,6 +5,8 @@ pubDate: 'Jul 04 2022'
 heroImage: '/audio/music/covering.png'
 ---
 
+## the princess is in another castle :o
+
 <meta http-equiv="refresh" content="3; url=/music" />
 
 # Redirecting to music page...

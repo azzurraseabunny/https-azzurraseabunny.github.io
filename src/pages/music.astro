@@ -106,13 +106,38 @@ const tracks = [
     flex-shrink: 0;
   }
 
-  .progress-bar input {
-    width: 100px;
-  }
+  .progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
 
-  .volume-bar {
-    width: 80px;
-  }
+.progress-bar input[type="range"] {
+  flex-grow: 1;
+  appearance: none;
+  background: #555;
+  height: 5px;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.progress-bar input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: #1db954;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.current-time,
+.duration {
+  font-size: 0.9rem;
+  color: white;
+}
 
   .playPauseBtn {
     background-color: #1db954;
@@ -179,8 +204,6 @@ const tracks = [
   }
 </style>
 
-</style>
-
 <script client:load>
   const playPauseBtns = document.querySelectorAll('.playPauseBtn');
   const progressBars = document.querySelectorAll('.progress');
@@ -196,7 +219,7 @@ const tracks = [
     return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
   }
 
-  // Pause other tracks when one is played
+  // Pause other tracks
   function pauseAllTracks(exceptIndex) {
     audioElements.forEach((audio, index) => {
       if (index !== exceptIndex) {
@@ -248,8 +271,11 @@ const tracks = [
       durationDisplay.textContent = formatTime(audio.duration);
       progressBar.max = audio.duration;
     });
+
+    audio.addEventListener('ended', () => {
+      playPauseBtn.textContent = 'Play';
+    });
   });
 </script>
-
 
 </Layout>
