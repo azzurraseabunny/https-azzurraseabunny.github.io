@@ -47,11 +47,20 @@ header {
     z-index: 1000;
 }
 
+/* Add transition effects for content */
 main {
     margin: 70px auto 0; /* Push content below the header */
     width: 860px;
     max-width: calc(100% - 2em);
     padding: 3em 1em;
+
+    /* Fade-in transition */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+main.hidden {
+    opacity: 0;
 }
 
 /* Typography and elements */
