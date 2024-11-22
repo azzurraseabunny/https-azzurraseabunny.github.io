@@ -11,15 +11,15 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
-	/* Image Container Styling */
-.portfolio-container img {
-  display: block; /* Ensures the image is treated as a block element */
-  margin: 0 auto; /* Centers the image horizontally */
-  margin-bottom: 0px; /* Removes bottom margin */
-  margin-top: 25px; /* Removes top margin */
-  width: 500px; /* Set a fixed width */
-  height: auto; /* Automatically adjust height to maintain aspect ratio */
-}
+      /* Image Container Styling */
+      .portfolio-container img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0px;
+        margin-top: 25px;
+        width: 500px;
+        height: auto;
+      }
 
       /* Basic Reset */
       * {
@@ -29,8 +29,8 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
       }
 
       body {
-        justify-content: space-between; /* Ensures footer stays at the bottom */
-        align-items: center; /* Centers content horizontally */
+        justify-content: space-between;
+        align-items: center;
       }
 
       header {
@@ -38,27 +38,25 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
         color: white;
         padding: 1rem;
         text-align: center;
-        width: 100%; /* Ensure it spans across the width */
+        width: 100%;
       }
 
-      /* Main Content Area */
       main {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center everything horizontally */
-        flex-grow: 1; /* Make sure the content takes available space */
+        align-items: center;
+        flex-grow: 1;
         padding: 20px;
-        width: 100%; /* Ensure the content doesn't stretch wider than the screen */
+        width: 100%;
       }
 
-      /* Flexbox Layout for image and text container */
       .about-container {
         display: flex;
         gap: 20px;
-        justify-content: center; /* Center the content horizontally */
+        justify-content: center;
         align-items: center;
-        margin-bottom: 40px; /* Add space before lower section */
-        width: 80%; /* Make the about container not stretch full width */
+        margin-bottom: 40px;
+        width: 80%;
       }
 
       .text-container {
@@ -82,40 +80,46 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
         color: white;
         padding: 1em;
         background-color: #333;
-        margin-bottom: 40px; /* Add space before card rows */
-        width: 80%; /* Limit the width for better readability */
-        text-align: center; /* Center text inside this container */
-		border-radius: 15px; /* Add rounded corners */
+        margin-bottom: 40px;
+        width: 80%;
+        text-align: center;
+        border-radius: 15px;
       }
 
       /* Card Row Styling */
       .card-row {
         display: flex;
-        justify-content: center; /* Center cards horizontally */
+        justify-content: center;
         gap: 20px;
-        width: 80%;
+        width: 30%;
         margin-bottom: 30px;
-        flex-wrap: wrap; /* Allow cards to wrap onto new rows if needed */
+        flex-wrap: wrap;
+        position: relative;
       }
 
       .card {
-  background: #333;
-  padding: 15px;
-  text-align: center;
-  width: 30%;
-  min-width: 250px; /* Set a minimum width for better responsiveness */
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; /* Center content inside cards */
-  border-radius: 15px; /* Add rounded corners */
-}
+        background: #333;
+        padding: 15px;
+        text-align: center;
+        width: 100%;
+        min-width: 250px;
+        flex: 1 1 auto;
+        display: none;
+        border-radius: 15px;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .card.active {
+        display: block;
+        opacity: 1;
+      }
 
       .card h3 {
         font-size: 1.2em;
         margin-bottom: 10px;
-		color: white;
+        color: white;
       }
 
       .card p {
@@ -123,23 +127,56 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
         color: white;
       }
 
-      /* Footer Styling */
+      /* Arrow buttons styling */
+      .arrow-button {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 50%;
+        font-size: 1.5em;
+        z-index: 5;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-0%);
+      }
+
+      .arrow-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 10;
+      }
+
+      .left-arrow {
+        left: -65px; /* Move left arrow outside */
+      }
+
+      .right-arrow {
+        right: -65px; /* Move right arrow outside */
+      }
+
       footer {
         background-color: #333;
         color: white;
         text-align: center;
         padding: 1rem;
-        width: 100%; /* Ensure footer spans across full width */
+        width: 100%;
       }
     </style>
   </head>
   <body>
     <Header />
-	<div class="portfolio-container">
+    <div class="portfolio-container">
       <img src="/title/about.gif" alt="Description of image" />
     </div>
     <main>
-      <!-- About Section -->
       <div class="about-container">
         <div class="image-container">
           <img src="/abouts.gif" alt="Description of image" />
@@ -160,44 +197,106 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
 
       <!-- Card Rows Section -->
       <div class="card-row">
-        <div class="card">
+        <div class="card active" id="card1">
           <h3>Hard Skills</h3>
-	  Expert :<br>
-      2D Animation<br>
-      Storyboard &
-      Compositing<br>
-      Character Design<br>
-      Concept Art<br>
-      Sound Design<br>
-      Character Animation<br>
-      Art<br>
-      Music Composition<br><br>
-      Proficient :<br>
-      Graphic Design<br>
-      Motion Graphics<br>
-      Music Production<br>
-      3D Modelling<br><br>
-      Novice :<br>
-      Game Programming<br>
-	  Website Programming
+          Expert :<br>
+          2D Animation<br>
+          Storyboard & Compositing<br>
+          Character Design<br>
+          Concept Art<br>
+          Sound Design<br>
+          Character Animation<br>
+          Art<br>
+          Music Composition<br><br>
+          Proficient :<br>
+          Graphic Design<br>
+          Motion Graphics<br>
+          Music Production<br>
+          3D Modelling<br><br>
+          Novice :<br>
+          Game Programming<br>
+          Website Programming
         </div>
-        <div class="card">
+        <div class="card" id="card2">
           <h3>Soft Skills</h3>
-           Strong work ethic<br>
-      Communication<br>
-      Adaptability<br>
-      Emotional Intelligence<br>
-      Creativity<br>
-      Ability to work under pressure<br>
-      Conflict Resolution<br>
-      Problem Solving<br>
-      Responsibility<br>
-      Self-Motivation<br>
-      Leadership<br>
-      Determined<br>
+          Strong work ethic<br>
+          Communication<br>
+          Adaptability<br>
+          Emotional Intelligence<br>
+          Creativity<br>
+          Ability to work under pressure<br>
+          Conflict Resolution<br>
+          Problem Solving<br>
+          Responsibility<br>
+          Self-Motivation<br>
+          Leadership<br>
+          Determined<br>
+        </div>
+        <!-- Arrow Buttons beside the cards for Card 1 -->
+        <div class="arrow-container">
+          <button class="arrow-button left-arrow" id="prevBtn1">&#8592;</button>
+          <button class="arrow-button right-arrow" id="nextBtn1">&#8594;</button>
+        </div>
+      </div>
+      <div class="card-row">
+        <div class="card active" id="card3">
+          <h3>Languages</h3>
+          English - Fluent<br>
+          Filipino - Native<br>
+          C++ - Intermediate<br>
+          Lua - Beginner<br>
+        </div>
+        <div class="card" id="card4">
+          <h3>Hobbies</h3>
+          Drawing<br>
+          Music Production<br>
+          Storytelling<br>
+          Gaming<br>
+          Animation<br>
+        </div>
+        <!-- Arrow Buttons beside the cards for Card 2 -->
+        <div class="arrow-container">
+          <button class="arrow-button left-arrow" id="prevBtn2">&#8592;</button>
+          <button class="arrow-button right-arrow" id="nextBtn2">&#8594;</button>
         </div>
       </div>
     </main>
     <Footer />
+
+    <script>
+      const cards1 = document.querySelectorAll('#card1, #card2');
+      const cards2 = document.querySelectorAll('#card3, #card4');
+      let currentIndex1 = 0;
+      let currentIndex2 = 0;
+
+      function showNextCard1() {
+        cards1[currentIndex1].classList.remove('active');
+        currentIndex1 = (currentIndex1 + 1) % cards1.length;
+        cards1[currentIndex1].classList.add('active');
+      }
+
+      function showPrevCard1() {
+        cards1[currentIndex1].classList.remove('active');
+        currentIndex1 = (currentIndex1 - 1 + cards1.length) % cards1.length;
+        cards1[currentIndex1].classList.add('active');
+      }
+
+      function showNextCard2() {
+        cards2[currentIndex2].classList.remove('active');
+        currentIndex2 = (currentIndex2 + 1) % cards2.length;
+        cards2[currentIndex2].classList.add('active');
+      }
+
+      function showPrevCard2() {
+        cards2[currentIndex2].classList.remove('active');
+        currentIndex2 = (currentIndex2 - 1 + cards2.length) % cards2.length;
+        cards2[currentIndex2].classList.add('active');
+      }
+
+      document.getElementById('nextBtn1').addEventListener('click', showNextCard1);
+      document.getElementById('prevBtn1').addEventListener('click', showPrevCard1);
+      document.getElementById('nextBtn2').addEventListener('click', showNextCard2);
+      document.getElementById('prevBtn2').addEventListener('click', showPrevCard2);
+    </script>
   </body>
 </html>

@@ -5,19 +5,30 @@ import { SITE_TITLE } from '../consts';
 
 <div class="gif-container">
   <img src="/zurraheader.gif" alt="Centered GIF" class="centered-gif" />
+  <nav>
+    <!-- Dropdown Button -->
+    <button class="dropdown-button" id="dropdownButton">&#9776;</button>
+    
+    <!-- Navigation links (hidden by default on smaller screens) -->
+    <div class="internal-links" id="navLinks">
+      <HeaderLink href="/">About</HeaderLink>
+      <HeaderLink href="/blog">Works</HeaderLink>
+      <HeaderLink href="/about">idk</HeaderLink>
+      <HeaderLink href="mailto:azzurraseabunny@gmail.com">Contact</HeaderLink>
+    </div>
+  </nav>
   <div class="placeholder-box"></div>
 </div>
 
-<nav>
-  <div class="internal-links">
-    <HeaderLink href="/">About</HeaderLink>
-    <HeaderLink href="/blog">Works</HeaderLink>
-    <HeaderLink href="/about">idk</HeaderLink>
-    <li>
-      <a href="mailto:azzurraseabunny@gmail.com">Contact me here!</a>
-    </li>
-  </div>
-</nav>
+<script>
+  // JavaScript to toggle the dropdown menu visibility
+  const dropdownButton = document.getElementById('dropdownButton');
+  const navLinks = document.getElementById('navLinks');
+
+  dropdownButton.addEventListener('click', () => {
+    navLinks.classList.toggle('dropdown-menu-active');
+  });
+</script>
 
 <style>
 /* Centering the GIF container */
@@ -30,6 +41,10 @@ import { SITE_TITLE } from '../consts';
   width: 100%;
   padding: 20px;
   box-sizing: border-box; /* Ensure padding doesn't overflow */
+}
+
+.gif-container img {
+  transform: scale(0.22) translateX(-180%);
 }
 
 /* Placeholder Box */
@@ -59,13 +74,13 @@ import { SITE_TITLE } from '../consts';
 /* Position the nav container to be in front of the GIF and center the buttons vertically */
 nav {
   position: absolute;
-  top: 4%; /* Center vertically */
+  top: 34%; /* Center vertically */
   right: 2%;
   z-index: 3; /* Ensure the nav is above the GIF */
   display: flex;
   justify-content: center; /* Center the buttons horizontally */
   align-items: center; /* Center the buttons vertically */
-  transform: translateY(-50%) transformX(40%); /* Adjust for exact centering */
+  transform: transformX(40%); /* Adjust for exact centering */
   padding: 0;
   margin: 0;
 }
@@ -98,19 +113,58 @@ nav {
   transform: scale(1.05); /* Scale the button to 110% of its original size */
 }
 
+/* Styling for the dropdown button */
+.dropdown-button {
+  visibility: hidden;
+}
+
+/* Hide the internal links by default on smaller screens */
 @media (max-width: 768px) {
-  /* Smaller screen adjustments */
-  .centered-gif {
-    width: 80%; /* Make GIF slightly smaller on smaller screens */
-  }
 
-  nav {
-    top: 50%; /* Adjust top position to center the nav even on smaller screens */
+  .gif-container {
+  position: fixed; /* Fixes the position */
   }
-
+  
+  .gif-container img{
+  transform: scale(0.5);
+  }
+  
+  .internal-links {
+    display: none; /* Hide the links by default */
+    position: absolute;
+    top: 50px; /* Position the dropdown menu */
+    left: 0;
+    width: 100%;
+	background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+  }
+  
+  .dropdown-button {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  padding: 10px;
+  font-size: 2.2em;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-30%);
+}
+  
+  .internal-links{
+  transform: translateX(-70%);
+  min-width: 150px;
+  border-radius: 6px;  /* Rounded corners for the buttons */
+  }
   .internal-links a {
-    font-size: 0.6em; /* Make buttons even smaller on smaller screens */
-    padding: 0.2em 0.5em; /* Adjust padding */
+    font-size: 0.6em;
+	min-height: 20px;
+    padding: 0.6em 0.5em;
+    margin: 7px 0;  /* Space between buttons */
+  }
+
+  /* Show the internal links when the dropdown button is clicked */
+  .dropdown-menu-active {
+    display: block;
   }
 }
 
