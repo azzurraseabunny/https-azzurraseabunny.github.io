@@ -19,7 +19,6 @@ import { SITE_TITLE } from '../consts';
   </nav>
   <div class="placeholder-box"></div>
 </div>
-
 <script>
   // JavaScript to toggle the dropdown menu visibility
   const dropdownButton = document.getElementById('dropdownButton');
@@ -120,9 +119,9 @@ nav {
 
 /* Hide the internal links by default on smaller screens */
 @media (max-width: 768px) {
-
   .gif-container {
   position: fixed; /* Fixes the position */
+  z-index: 10;
   }
   
   .gif-container img{
@@ -151,7 +150,7 @@ nav {
 }
   
   .internal-links{
-  transform: translateX(-70%);
+  transform: translateX(-70%) translateY(10%);
   min-width: 150px;
   border-radius: 6px;  /* Rounded corners for the buttons */
   }
