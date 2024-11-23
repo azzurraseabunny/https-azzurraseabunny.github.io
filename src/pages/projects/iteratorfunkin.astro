@@ -1,0 +1,67 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import CardFeature from '../../components/CardFeature.astro';  // Import the card feature
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      /* Image Container Styling */
+      .portfolio-container img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0px;
+        margin-top: 25px;
+        width: 500px;
+        height: auto;
+      }
+
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+        padding: 20px;
+        width: 100%;
+      }
+
+      .about-container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+        width: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <div class="portfolio-container">
+      <img src="/title/about.gif" alt="Description of image" />
+    </div>
+    <main>
+
+<p>nothing here yet! come back soon!<p>
+
+    </main>
+    <Footer />
+  </body>
+</html>

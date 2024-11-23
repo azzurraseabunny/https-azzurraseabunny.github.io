@@ -7,7 +7,7 @@
 </footer>
 
 <!-- Scroll to Top Button -->
-<button class="scroll-to-top-btn" id="scrollToTopBtn" style="display: none;">↑</button>
+<button class="scroll-to-top-btn" id="scrollToTopBtn">↑</button>
 
 <style>
 /* Basic Page Layout */
@@ -78,9 +78,9 @@ main {
 /* Scroll-to-Top Button Styles */
 .scroll-to-top-btn {
     position: fixed;
-    bottom: 20px; /* Fixed distance from the bottom */
+    bottom: 20px; /* Always visible, at the bottom of the screen */
     right: 20px;
-    background-color: #007bff;
+    background-color: #db3f23;
     color: white;
     border: none;
     border-radius: 50%;
@@ -92,12 +92,14 @@ main {
     align-items: center;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* BackOut effect */
     z-index: 10; /* Ensure it stays above the footer */
+    transform: translateY(100px); /* Start off the screen (below) */
 }
 
+/* Scroll-to-Top Button Hover Effects */
 .scroll-to-top-btn:hover {
-    background-color: #0056b3;
+    background-color: gray;
 }
 
 .scroll-to-top-btn:focus {
@@ -110,15 +112,15 @@ main {
     // Get the button
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-    // Hide the button by default
-    scrollToTopBtn.style.display = 'none';
+    // Initially hide the button off the screen
+    scrollToTopBtn.style.transform = 'translateY(100px)'; // Below the screen by 100px
 
     // Show the button when scrolled down 200px from the top
     window.onscroll = function() {
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            scrollToTopBtn.style.display = 'flex'; // Show the button
+            scrollToTopBtn.style.transform = 'translateY(0px)'; // Slide up into view with BackOut effect
         } else {
-            scrollToTopBtn.style.display = 'none'; // Hide the button
+            scrollToTopBtn.style.transform = 'translateY(100px)'; // Slide back down (hidden)
         }
     };
 

@@ -108,7 +108,7 @@ const tracks = [
 <!-- Add a global volume slider -->
 <div class="global-volume-control">
   <label for="global-volume-slider">Volume</label>
-  <input id="global-volume-slider" class="volume-slider" type="range" min="0" max="1" step="0.01" value="1" />
+  <input id="global-volume-slider" class="volume-slider" type="range" min="0" max="100" step="0.01" value="100" />
 </div>
 
 
@@ -326,110 +326,121 @@ const tracks = [
 </style>
 
 <script client:load>
-// Get all play/pause buttons and audio elements
-const playPauseBtns = document.querySelectorAll('.playPauseBtn');
-const audioElements = document.querySelectorAll('.audio-element');
+  // Get all play/pause buttons and audio elements
+  const playPauseBtns = document.querySelectorAll('.playPauseBtn');
+  const audioElements = document.querySelectorAll('.audio-element');
 
-// Select all volume sliders
-const volumeSliders = document.querySelectorAll('.volume-slider');
+  // Get the global volume slider
+  const globalVolumeSlider = document.getElementById('global-volume-slider');
 
-// Event listener for each volume slider
-volumeSliders.forEach((slider, index) => {
-  slider.addEventListener('input', (event) => {
-    const volume = event.target.value;
-    audioElements[index].volume = volume; // Set the volume of the corresponding track
+  // Set initial global volume to 1 (100%)
+  audioElements.forEach(audio => {
+    audio.volume = globalVolumeSlider.value / 100; // Correctly scale to 0-1
   });
-});
 
-
-// Function to format time in MM:SS
-function formatTime(time) {
-  const minutes = Math.floor(time / 60);
-  const seconds = Math.floor(time % 60);
-  return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-}
-
-// Function to pause all tracks except the selected one
-function pauseAllTracks(exceptIndex) {
-  audioElements.forEach((audio, index) => {
-    if (index !== exceptIndex) {
-      audio.pause();
-      playPauseBtns[index].textContent = 'Play';
-    }
+  // Event listener for the global volume slider
+  globalVolumeSlider.addEventListener('input', (event) => {
+    const globalVolume = event.target.value; // Get global volume value (0-100)
+    audioElements.forEach(audio => {
+      audio.volume = globalVolume / 100; // Scale value to 0-1 for volume
+    });
   });
-}
 
-// Function to handle play/pause and update album display
-function selectTrack(index) {
-  const track = tracks[index];
-  const albumCover = document.getElementById('album-cover');
-  const albumTitle = document.getElementById('album-title');
-  const audio = audioElements[index];
-  const playPauseBtn = playPauseBtns[index];
+  // Initialize individual volume sliders for each track (if you still want separate control)
+  const volumeSliders = document.querySelectorAll('.volume-slider');
+  volumeSliders.forEach((slider, index) => {
+    slider.addEventListener('input', (event) => {
+      const volume = event.target.value / 100; // Convert slider value (0-100) to 0-1 scale
+      audioElements[index].volume = volume; // Set the volume for the corresponding track
+    });
+  });
 
-  // Update the album display with the selected track's cover and title
-  albumCover.src = track.cover;
-  albumTitle.textContent = track.title; // Update album-title dynamically
-
-  // Pause all other tracks and play the selected one
-  pauseAllTracks(index);
-
-  if (audio.paused) {
-    audio.play();
-    playPauseBtn.textContent = 'Pause';
-  } else {
-    audio.pause();
-    playPauseBtn.textContent = 'Play';
+  // Function to format time in MM:SS
+  function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
   }
-}
 
-// Event listener for play/pause buttons
-playPauseBtns.forEach((btn, index) => {
-  btn.addEventListener('click', () => {
+  // Function to pause all tracks except the selected one
+  function pauseAllTracks(exceptIndex) {
+    audioElements.forEach((audio, index) => {
+      if (index !== exceptIndex) {
+        audio.pause();
+        playPauseBtns[index].textContent = 'Play';
+      }
+    });
+  }
+
+  // Function to handle play/pause and update album display
+  function selectTrack(index) {
+    const track = tracks[index];
+    const albumCover = document.getElementById('album-cover');
+    const albumTitle = document.getElementById('album-title');
     const audio = audioElements[index];
     const playPauseBtn = playPauseBtns[index];
-	const albumCover = document.getElementById('album-cover');
-    const albumTitle = document.getElementById('album-title');
-	
+
+    // Update the album display with the selected track's cover and title
+    albumCover.src = track.cover;
+    albumTitle.textContent = track.title; // Update album-title dynamically
+
+    // Pause all other tracks and play the selected one
+    pauseAllTracks(index);
+
     if (audio.paused) {
-      pauseAllTracks(index);
       audio.play();
       playPauseBtn.textContent = 'Pause';
     } else {
       audio.pause();
       playPauseBtn.textContent = 'Play';
     }
-  });
-});
+  }
 
-// Function to update progress bar
-audioElements.forEach((audio, index) => {
-  const progressBar = document.querySelectorAll('.progress')[index];
-  const currentTimeDisplay = document.querySelectorAll('.current-time')[index];
-  const durationDisplay = document.querySelectorAll('.duration')[index];
-
-  audio.addEventListener('timeupdate', () => {
-    const currentTime = audio.currentTime;
-    const duration = audio.duration;
-    progressBar.value = currentTime;
-    currentTimeDisplay.textContent = formatTime(currentTime);
-    durationDisplay.textContent = formatTime(duration);
-  });
-
-  progressBar.addEventListener('input', () => {
-    audio.currentTime = progressBar.value;
-  });
-
-  audio.addEventListener('loadedmetadata', () => {
-    durationDisplay.textContent = formatTime(audio.duration);
-    progressBar.max = audio.duration;
+  // Event listener for play/pause buttons
+  playPauseBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      const audio = audioElements[index];
+      const playPauseBtn = playPauseBtns[index];
+      const albumCover = document.getElementById('album-cover');
+      const albumTitle = document.getElementById('album-title');
+      
+      if (audio.paused) {
+        pauseAllTracks(index);
+        audio.play();
+        playPauseBtn.textContent = 'Pause';
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = 'Play';
+      }
+    });
   });
 
-  audio.addEventListener('ended', () => {
-    playPauseBtn.textContent = 'Play';
-  });
-});
+  // Function to update progress bar
+  audioElements.forEach((audio, index) => {
+    const progressBar = document.querySelectorAll('.progress')[index];
+    const currentTimeDisplay = document.querySelectorAll('.current-time')[index];
+    const durationDisplay = document.querySelectorAll('.duration')[index];
 
+    audio.addEventListener('timeupdate', () => {
+      const currentTime = audio.currentTime;
+      const duration = audio.duration;
+      progressBar.value = currentTime;
+      currentTimeDisplay.textContent = formatTime(currentTime);
+      durationDisplay.textContent = formatTime(duration);
+    });
+
+    progressBar.addEventListener('input', () => {
+      audio.currentTime = progressBar.value;
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      durationDisplay.textContent = formatTime(audio.duration);
+      progressBar.max = audio.duration;
+    });
+
+    audio.addEventListener('ended', () => {
+      playPauseBtn.textContent = 'Play';
+    });
+  });
 </script>
-
 </Layout>
