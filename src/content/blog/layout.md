@@ -40,6 +40,14 @@ heroImage: '/portfolio/layout/covering.png'
       <p>Clip Studio Paint</p>
     </div>
   </div>
+  
+  <div class="image-container">
+    <img src="/portfolio/layout/bridgework.png" class="clickable-image" />
+    <div class="overlay">
+      <h3>Bridgework</h3>
+      <p>Clip Studio Paint</p>
+    </div>
+  </div>
 
   <div class="image-container">
     <img src="/portfolio/layout/bizznezz.png" class="clickable-image" />
