@@ -12,51 +12,67 @@ const tracks = [
     title: "Study Time",
     src: "/audio/music/StudyTim.mp3",
     cover: "/audio/music/disc.png",
+    artist: "Funkiin Arts",
   },
   {
     title: "Starstruck",
-    src: "/audio/music/starstruck.mp3", // Replace with your actual audio file path
-    cover: "/audio/music/disc.png", // Optional, if you want to show an image for the track
+    src: "/audio/music/starstruck.mp3",
+    cover: "/audio/music/disc.png",
+    artist: "Honeymoon Repollenated",
   },
   {
     title: "Halcyon",
     src: "/audio/music/Halcyon.ogg",
     cover: "/audio/music/disc.png",
+    artist: "Iterator Funkin",
   },
   {
     title: "Scav",
     src: "/audio/music/Scav.ogg",
     cover: "/audio/music/disc.png",
+	artist: "Iterator Funkin",
   },
   {
     title: "Daybreak",
     src: "/audio/music/Daybreak.mp3",
     cover: "/audio/music/disc.png",
+	artist: "Friday Night Honeymoon",
+  },
+  {
+    title: "Unholy Serenata",
+    src: "/audio/music/unholyseranata.ogg",
+    cover: "/audio/music/disc.png",
+	artist: "Honeymoon Repollenated",
   },
   {
     title: "Cat-Coded",
     src: "/audio/music/catcoded.mp3",
     cover: "/audio/music/disc.png",
+	artist: "Friday Night Honeymoon",
   },
   {
     title: "Prideful Prance",
     src: "/audio/music/Polyphoria.mp3",
     cover: "/audio/music/disc.png",
+	artist: "Funkiin Arts",
   },
   {
     title: "Azure",
     src: "/audio/music/Azure.mp3",
     cover: "/audio/music/disc.png",
+	artist: "Funkiin Arts",
   },
   {
     title: ":3-ified",
     src: "/audio/music/uwuified.mp3",
     cover: "/audio/music/disc.png",
+	artist: "Funkiin Arts",
   },
   {
     title: "Avert",
     src: "/audio/music/Avert.ogg",
     cover: "/audio/music/disc.png",
+	artist: "Honeymoon Repollenated",
   },
   
   // Add more tracks here as needed
@@ -68,14 +84,16 @@ const tracks = [
 		<main>
 			<article>
 
-<!-- Audio Player Section -->
 <div class="audio-player">
   {tracks.map((track, index) => (
     <div class="track-item" key={index} onClick="selectTrack(${index})">
       <div class="track-info">
-        <img class="track-cover" src={track.cover} alt="Track Cover" />
-        <h2 class="track-title">{track.title}</h2><br>
-      </div>
+  <img class="track-cover" src={track.cover} alt="Track Cover" />
+  <div>
+    <h2 class="track-title">{track.title}</h2>
+    <p class="track-artist">{track.artist}</p>
+  </div>
+</div>
       <audio class="audio-element" src={track.src} preload="metadata"></audio>
       <div class="controls">
         <button class="playPauseBtn">Play</button>
@@ -137,6 +155,12 @@ const tracks = [
   margin-top: 10px;
   color: white;
   font-size: 1.2rem;
+}
+
+.track-artist {
+  margin-top: 5px;
+  color: #aaa;
+  font-size: 0.9rem;
 }
 
 
