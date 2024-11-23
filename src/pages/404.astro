@@ -71,11 +71,23 @@ import Footer from '../components/Footer.astro';
       }
     </style>
     <script>
-      // Function to play the sound
+      // Function to play a random sound based on a random string selection
       function playSound() {
-        // Add a unique timestamp query to the audio URL to bypass caching
-        const audio = new Audio(`/audio/404.mp3?timestamp=${new Date().getTime()}`);
+        const options = ["404", "sigma", "hehe", "rehe"];
+        const randomChoice = options[Math.floor(Math.random() * options.length)];
+        
+        // Dynamically change the title and sound based on the random choice
+        document.title = randomChoice;
+        const audio = new Audio(`/audio/${randomChoice}.mp3?timestamp=${new Date().getTime()}`);
         audio.play();
+        
+        // Update the page content based on the random choice
+        const messageContainer = document.querySelector('.error-container');
+        messageContainer.innerHTML = `
+          <h1>${randomChoice}</h1>
+          <p>Whatever you're looking for, It's not here!</p>
+          <a href="/">Take me home..</a>
+        `;
       }
 
       // Play sound when page is loaded or reloaded
@@ -83,7 +95,7 @@ import Footer from '../components/Footer.astro';
         playSound();
       });
     </script>
-  </head>
+ </head>
 
   <body>
     <div class="error-container">
