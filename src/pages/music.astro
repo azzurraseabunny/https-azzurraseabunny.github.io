@@ -88,7 +88,6 @@ const tracks = [
   {tracks.map((track, index) => (
     <div class="track-item" key={index} onClick="selectTrack(${index})">
       <div class="track-info">
-  <img class="track-cover" src={track.cover} alt="Track Cover" />
   <div>
     <h2 class="track-title">{track.title}</h2>
     <p class="track-artist">{track.artist}</p>
@@ -104,12 +103,6 @@ const tracks = [
       </div>
     </div>
   ))}
-</div>
-
-<!-- Album Display Box -->
-<div class="album-display">
-  <img id="album-cover" src="" alt="Album Cover" class="album-cover"/>
-  <h2 id="album-title" class="album-title">still a wip!</h2>
 </div>
 
 </article>
@@ -128,20 +121,6 @@ const tracks = [
   color: white;
   font-family: Arial, sans-serif;
   max-width: 800px;
-}
-
-.album-display {
-  position: fixed;
-  top: 100px;
-  right: 20px;
-  background-color: #333;
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 300px;
-  text-align: center;
 }
 
 .album-cover {
@@ -330,9 +309,9 @@ function selectTrack(index) {
   const audio = audioElements[index];
   const playPauseBtn = playPauseBtns[index];
 
-  // Update album display
+  // Update the album display with the selected track's cover and title
   albumCover.src = track.cover;
-  albumTitle.textContent = track.title;
+  albumTitle.textContent = track.title; // Update album-title dynamically
 
   // Pause all other tracks and play the selected one
   pauseAllTracks(index);
@@ -351,6 +330,9 @@ playPauseBtns.forEach((btn, index) => {
   btn.addEventListener('click', () => {
     const audio = audioElements[index];
     const playPauseBtn = playPauseBtns[index];
+	const albumCover = document.getElementById('album-cover');
+    const albumTitle = document.getElementById('album-title');
+	
     if (audio.paused) {
       pauseAllTracks(index);
       audio.play();
