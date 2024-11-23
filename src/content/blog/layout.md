@@ -6,7 +6,6 @@ heroImage: '/portfolio/layout/covering.png'
 ---
 
 <!-- Gallery Container -->
-<hr class="custom-line">
 <div class="gallery-container">
 
   <div class="image-container">
@@ -48,6 +47,15 @@ heroImage: '/portfolio/layout/covering.png'
       <p>Clip Studio Paint</p>
     </div>
   </div>
+<div class="image-container">
+    <img src="/portfolio/layout/seraphic.png" class="clickable-image" />
+    <div class="overlay">
+      <h3>Seraphic</h3>
+      <p>Clip Studio Paint</p>
+    </div>
+  </div>
+
+	
 
   <div class="image-container">
     <img src="/portfolio/layout/bizznezz.png" class="clickable-image" />
@@ -110,7 +118,6 @@ body {
   transform: translateX(-17%);
 }
 
-
 .image-container {
   position: relative;
   width: 300px;
@@ -164,7 +171,7 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
@@ -177,8 +184,8 @@ body {
 }
 
 .modal-content {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 70%;
+  max-height: 70%;
   margin: auto;
   display: block;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -193,6 +200,22 @@ body {
   font-weight: bold;
   cursor: pointer;
   z-index: 2;
+}
+
+.modal-description {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  transform: translateX(-80%);
+}
+
+.modal-description h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.modal-description p {
+  font-size: 16px;
 }
 
 /* Responsive Layout for Mobile */
@@ -215,6 +238,76 @@ body {
   }
 }
 
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background overlay */
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Modal Content */
+.modal-content {
+  max-width: 70%;
+  max-height: 70%;
+  margin: auto;
+  display: block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transform: none; /* Removed translateX */
+  position: relative; /* Ensures positioning relative to the parent container */
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding: 10px; /* Optional: adds padding around the content */
+}
+
+/* Modal Description */
+.modal-description {
+  color: white;
+  text-align: center;
+  position: absolute;
+  bottom: 20px; /* Adjust the distance from the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Offset by 50% of its width to perfectly center */
+  width: 100%; /* Ensure description stays within the modal's width */
+}
+
+
+/* Responsive Layout for Mobile */
+@media (max-width: 768px) {
+  /* Ensure modal content and description are centered */
+  .modal-content {
+    max-width: 90%; /* Ensure it doesn't overflow on mobile */
+    max-height: 90%; /* Adjust the max height to fit better on small screens */
+    transform: translateX(0); /* Remove horizontal translation */
+  }
+
+  .modal-description {
+    width: 100%; /* Ensure the description takes the full width */
+    transform: translateY(20px); /* Adjust vertical position */
+    margin-top: 20px; /* Adjust spacing between the image and description */
+	transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-description h3 {
+    font-size: 18px; /* Smaller title size for small screens */
+  }
+
+  .modal-description p {
+    font-size: 14px; /* Smaller text for description */
+  }
+}
+
 /* Smaller Mobile Devices */
 @media (max-width: 480px) {
   .overlay h3 {
@@ -225,8 +318,6 @@ body {
     font-size: 10px;
   }
 }
-
-
 </style>
 
 <script>
@@ -234,6 +325,10 @@ body {
 const modal = document.getElementById("image-modal");
 const modalImg = document.getElementById("modal-img");
 const closeModal = document.getElementById("close-modal");
+
+// Get the modal title and description elements
+const modalTitle = document.getElementById("modal-title");
+const modalDescriptionText = document.getElementById("modal-description-text");
 
 // Get all images with the class 'clickable-image'
 const images = document.querySelectorAll(".clickable-image");
@@ -244,6 +339,10 @@ images.forEach((img) => {
     modal.style.display = "flex"; // Show the modal
     modal.style.opacity = 1; // Fade in the modal
     modalImg.src = e.target.src; // Set the modal image source to the clicked image
+
+    // Get the title and description from the clicked image's data attributes
+    modalTitle.textContent = e.target.getAttribute("data-title");
+    modalDescriptionText.textContent = e.target.getAttribute("data-description");
   });
 });
 
