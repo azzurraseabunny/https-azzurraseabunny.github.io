@@ -57,6 +57,14 @@ heroImage: '/portfolio/illustration/covering.png'
   </div>
   
   <div class="image-container">
+    <img src="/portfolio/illustration/kura.png"  class="clickable-image" data-title="Bee Honeydew" data-description="Clip Studio Paint" />
+    <div class="overlay">
+      <h3>Kura the Shulk</h3>
+      <p>Clip Studio Paint</p>
+    </div>
+  </div>
+  
+  <div class="image-container">
     <img src="/portfolio/illustration/ancientbg.png"  class="clickable-image" data-title="Ancient" data-description="Clip Studio Paint" />
     <div class="overlay">
       <h3>Ancient</h3>
