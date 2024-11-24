@@ -1,5 +1,5 @@
 ---
-title: 'Layout'
+title: 'Layout & Graphic Design'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 07 2022'
 heroImage: '/portfolio/layout/covering.png'
