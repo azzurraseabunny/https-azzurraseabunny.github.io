@@ -9,143 +9,23 @@ import '../styles/global.css';
 // Define the tracks with their titles, audio sources, and cover images
 const tracks = [
   {
-    title: "Study Time",
-    src: "/audio/music/StudyTim.mp3",
+    title: "Deital Interference Teaser",
+    src: "/audio/sounddesign/cityteaser.mp3",
     cover: "/audio/music/disc.png",
-    artist: "Funkiin Arts",
-	date: "2023",
-	stripes: ["#e44030", "#d4342c", "#e44030", "#d4342c", "#e44030"]
+    artist: "(Blender Exam)",
   },
   {
-    title: "Azure",
-    src: "/audio/music/Azure.mp3",
-    cover: "/audio/music/disc.png",
-	artist: "Funkiin Arts",
-	date: "2023",
-	stripes: ["#e44030", "#d4342c", "#e44030", "#d4342c", "#e44030"]
-  },
-  {
-    title: ":3-ified",
-    src: "/audio/music/uwuified.mp3",
-    cover: "/audio/music/disc.png",
-	artist: "Funkiin Arts",
-	date: "2023",
-	stripes: ["#e44030", "#d4342c", "#e44030", "#d4342c", "#e44030"]
-  },
-    {
-    title: "Prideful Prance",
-    src: "/audio/music/Polyphoria.mp3",
-    cover: "/audio/music/disc.png",
-	artist: "Funkiin Arts",
-	date: "2023",
-	stripes: ["#f25d38", "#fa7452", "#ffffff", "#fc81ba", "#ff4fa1"]
-  },
-  {
-    title: "Silly Date",
-    src: "/audio/music/chipdate.mp3",
-    cover: "/audio/music/disc.png",
-    artist: "Honeymoon Repollenated",
-	date: "2024",
-	stripes: ["#f58442", "#f56942", "#f58442", "#f56942", "#f58442"]
-  },
-  {
-    title: "Flower Basket",
-    src: "/audio/music/flowerbasket.mp3",
-    cover: "/audio/music/disc.png",
-    artist: "Honeymoon Repollenated",
-	date: "2023",
-	stripes: ["#f58442", "#f56942", "#f58442", "#f56942", "#f58442"]
-  },
-  {
-    title: "Starstruck",
-    src: "/audio/music/starstruck.mp3",
-    cover: "/audio/music/disc.png",
-    artist: "Honeymoon Repollenated",
-	date: "2024",
-	stripes: ["#f58442", "#f56942", "#f58442", "#f56942", "#f58442"]
-  },
-  {
-    title: "Shorts and Shores",
-    src: "/audio/music/shortsandshores.mp3",
-    cover: "/audio/music/disc.png",
-    artist: "Honeymoon Repollenated",
-	date: "2024",
-	stripes: ["#f58442", "#f56942", "#f58442", "#f56942", "#f58442"]
-  },
-  {
-    title: "Daybreak",
-    src: "/audio/music/Daybreak.mp3",
-    cover: "/audio/music/disc.png",
-	artist: "Honeymoon (Original Mix)",
-	date: "2022",
-	stripes: ["#1b9470", "#19a672", "#1b9470", "#19a672", "#1b9470"]
-  },
-  {
-    title: "Unholy Serenata",
-    src: "/audio/music/unholyseranata.ogg",
-    cover: "/audio/music/disc.png",
-	artist: "Honeymoon Repollenated",
-	date: "2024",
-	stripes: ["#206161", "#237070", "#206161", "#237070", "#206161"]
-  },
-  {
-    title: "Bittersweet",
-    src: "/audio/music/Bittersweet.mp3",
-    cover: "/audio/music/disc.png",
-	artist: "Honeymoon (Original Mix)",
-	date: "2021",
-	stripes: ["#fce8ff", "#f9cfff", "#fce8ff", "#f9cfff", "#fce8ff"]
-  },
-  {
-    title: "Cat-Coded",
-    src: "/audio/music/catcoded.mp3",
-    cover: "/audio/music/disc.png",
-	artist: "Honeymoon (Original Mix)",
-	date: "2022",
-	stripes: ["#fc4ef1", "#d930ff", "#fc4ef1", "#d930ff", "#fc4ef1"]
-  },
-  {
-    title: "Avert",
-    src: "/audio/music/Avert.ogg",
-    cover: "/audio/music/disc.png",
-	artist: "Honeymoon Repollenated",
-	date: "2023",
-	stripes: ["#360914", "#360914", "#360914", "#360914", "#360914"]
-  },
-  {
-    title: "Halcyon",
-    src: "/audio/music/Halcyon.ogg",
-    cover: "/audio/music/disc.png",
-    artist: "Iterator Funkin",
-	date: "2024",
-	stripes: ["#f75414", "#f75414", "#f75414", "#f75414", "#f75414"]
-  },
-  {
-    title: "Scav",
-    src: "/audio/music/Scav.ogg",
+    title: "Brain Blast",
+    src: "/audio/sounddesign/BRAINBLAST.ogg",
     cover: "/audio/music/disc.png",
 	artist: "Iterator Funkin",
-	date: "2024",
-	stripes: ["#261e1c", "#261e1c", "#261e1c", "#261e1c", "#261e1c"]
   },
   {
-    title: "Descend",
-    src: "/audio/music/Descend.mp3",
+    title: "Singularity Bomb",
+    src: "/audio/sounddesign/OBLITERATE.ogg",
     cover: "/audio/music/disc.png",
 	artist: "Iterator Funkin",
-	date: "2024",
-	stripes: ["#141313", "#141313", "#141313", "#141313", "#141313"]
-  },
-  {
-    title: "Journey to the West (LMK)",
-    src: "/audio/music/wukong.mp3",
-    cover: "/audio/music/disc.png",
-	artist: "Zurra's Oneshots",
-	date: "2023",
-	stripes: ["#c8642d","#c8642d", "#a7151f", "#a7151f", "#faa91a", "#faa91a"]
-  },
-  
-  // Add more tracks here as needed
+  }
 ];
 ---
 
@@ -157,31 +37,23 @@ const tracks = [
 <div class="audio-player">
   {tracks.map((track, index) => (
     <div class="track-item" key={index} onClick="selectTrack(${index})">
-  <div class="stripes">
-    {track.stripes.map((color, stripeIndex) => (
-      <div class="stripe" style={{ backgroundColor: color }} key={stripeIndex}></div>
-    ))}
-  </div>
-  <div class="track-info">
-    <div>
-      <h2 class="track-title">{track.title}</h2>
-      <p class="track-artist">{track.artist} // {track.date}</p>
+      <div class="track-info">
+        <div>
+          <h2 class="track-title">{track.title}</h2>
+          <p class="track-artist">{track.artist}</p>
+        </div>
+      </div>
+      <audio class="audio-element" src={track.src} preload="metadata"></audio>
+      <div class="controls">
+        <button class="playPauseBtn">Play</button>
+        <div class="progress-bar">
+          <input class="progress" type="range" min="0" value="0" step="1" />
+          <span class="current-time">0:00</span> / <span class="duration">0:00</span>
+        </div>
+      </div>
     </div>
-  </div>
-  <audio class="audio-element" src={track.src} preload="metadata"></audio>
-  <div class="controls">
-    <button class="playPauseBtn">Play</button>
-    <div class="progress-bar">
-      <input class="progress" type="range" min="0" value="0" step="1" />
-      <span class="current-time">0:00</span> / <span class="duration">0:00</span>
-    </div>
-  </div>
-</div>
-
   ))}
 </div>
-
-
 
 <!-- Add a global volume slider -->
 <div class="global-volume-control">
@@ -267,53 +139,38 @@ const tracks = [
   font-size: 0.9rem;
 }
 
-.track-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #333;
-  border-radius: 10px;
-  margin: 10px 0;
-  padding: 10px 20px;
-  width: 100%;
-  box-sizing: border-box;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  position: relative;
-}
 
-.stripes {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 5%;   /* Cover 5% of the width of the track-item */
-  display: flex;  /* Arrange stripes in a row */
-  justify-content: space-between;  /* Distribute stripes evenly */
-}
-
-.stripe {
-  height: 100%;   /* Each stripe takes full height of the container */
-  width: 20%;     /* Each stripe takes 1/5th of the 5% container width */
-}
-
+  .track-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #333;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
 
   .track-info {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  margin-left: 5%;  /* Shift the content to the right by 20% */
-}
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
 
-.track-title {
-  color: white;
-  font-size: 1.2rem;
-}
+  .track-cover {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
 
-.track-artist {
-  color: #aaa;
-  font-size: 0.9rem;
-}
-
+  .track-title {
+    color: white;
+    font-size: 1.2rem;
+  }
 
   .controls {
     display: flex;
@@ -355,25 +212,19 @@ const tracks = [
   color: white;
 }
 
-.playPauseBtn {
-  background-color: #1db954;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.2s ease, transform 0.1s ease;
-}
+  .playPauseBtn {
+    background-color: #1db954;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 5px;
+  }
 
-.playPauseBtn:active {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0); /* Faded shadow when pressed */
-  transform: scale(0.98); /* Slightly shrink the button when pressed */
-}
-
-
-
+  .playPauseBtn:hover {
+    background-color: #1ed760;
+  }
 
   .global-volume-control {
     position: fixed;

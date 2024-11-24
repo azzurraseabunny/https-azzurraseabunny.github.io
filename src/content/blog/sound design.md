@@ -1,9 +1,14 @@
 ---
 title: 'Sound Design'
 description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 03 2022'
-heroImage: '/portfolio/sounddesign/covering.png'
+pubDate: 'Jul 04 2022'
+heroImage: '/audio/sounddesign/covering.png'
 ---
 
-you may notice that theres nothing here, thats because there IS nothing here...<br><br>
-i havent displayed anything yet. too busy </3
+## the princess is in another castle :o
+
+<meta http-equiv="refresh" content="3; url=/sound-design" />
+
+# Redirecting to sound design page...
+
+You will be redirected shortly. If you are not redirected, [click here](https://azzurraseabunny.github.io/sound-design).

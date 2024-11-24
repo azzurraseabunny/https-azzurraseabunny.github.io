@@ -81,86 +81,71 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
         padding: 1em;
         background-color: #333;
         margin-bottom: 40px;
-        width: 80%;
+        width: 64%;
         text-align: center;
         border-radius: 15px;
       }
 
-      /* Card Row Styling */
-      .card-row {
+      /* Card Panels Container */
+      .card-panel-container {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         gap: 20px;
-        width: 30%;
-        margin-bottom: 30px;
+        margin-top: 30px;
+        width: 100%;
+        max-width: 1200px;
         flex-wrap: wrap;
-        position: relative;
       }
 
-      .card {
+      .card-panel {
         background: #333;
         padding: 15px;
         text-align: center;
-        width: 100%;
-        min-width: 250px;
-        flex: 1 1 auto;
-        display: none;
         border-radius: 15px;
-        overflow: hidden;
-        opacity: 0;
-        transition: opacity 0.5s ease;
+        color: white;
+        flex: 1 1 calc(33.33% - 20px);
+        min-width: 250px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       }
 
-      .card.active {
-        display: block;
-        opacity: 1;
-      }
-
-      .card h3 {
+      .card-panel h3 {
         font-size: 1.2em;
         margin-bottom: 10px;
         color: white;
       }
 
-      .card p {
+      .card-panel p {
         font-size: 1em;
         color: white;
+        line-height: 1.5;
       }
 
-      /* Arrow buttons styling */
-      .arrow-button {
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 50%;
-        font-size: 1.5em;
-        z-index: 5;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-0%);
-      }
+@media (max-width: 768px) {
+  .card-panel-container {
+    flex-direction: column; /* Stack panels vertically */
+    gap: 10px; /* Smaller spacing between panels */
+    align-items: center; /* Center the thinner cards */
+  }
 
-      .arrow-container {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        transform: translateY(-50%);
-        z-index: 10;
-      }
+  .card-panel {
+    flex: 1 1 auto;
+    width: 80%; /* Make the cards thinner */
+    padding: 10px; /* Smaller padding */
+    font-size: 0.85em; /* Slightly smaller text size */
+  }
 
-      .left-arrow {
-        left: -65px; /* Move left arrow outside */
-      }
+  .card-panel h3 {
+    font-size: 1em; /* Adjust heading size */
+    margin-bottom: 8px; /* Adjust spacing below heading */
+  }
 
-      .right-arrow {
-        right: -65px; /* Move right arrow outside */
-      }
+  .card-panel p {
+    font-size: 0.85em; /* Adjust paragraph size */
+    line-height: 1.4; /* Maintain readability */
+  }
+}
+
+
 
       footer {
         background-color: #333;
@@ -191,114 +176,38 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
       <div class="lower-container">
         <p>
           I'm creative and a multi-talented animator, illustrator, and storyteller with a strong background in character design, story development, and music production.<br><br>
-          I'm also experienced in working on both independent and collaborative projects, drawing inspiration from renowned animation studios, films, and popular media.
+          I'm also experienced in working on both independent and collaborative projects, drawing inspiration from renowned animation studios, films, and popular media.<br><br>
+		  I am highly adaptable to a wide range of tasks, using my creativity and skills to deliver quality results while continually striving to perfect my craft.
         </p>
       </div>
 
-      <!-- Card Rows Section -->
-      <div class="card-row">
-        <div class="card active" id="card1">
+      <!-- New Card Panels -->
+      <div class="card-panel-container">
+        <div class="card-panel">
           <h3>Hard Skills</h3>
-          Expert :<br>
-          2D Animation<br>
-          Storyboard & Compositing<br>
-          Character Design<br>
-          Concept Art<br>
-          Sound Design<br>
-          Character Animation<br>
-          Art<br>
-          Music Composition<br><br>
-          Proficient :<br>
-          Graphic Design<br>
-          Motion Graphics<br>
-          Music Production<br>
-          3D Modelling<br><br>
-          Novice :<br>
-          Game Programming<br>
-          Website Programming
+          <p>
+            Expert :<br>
+            2D Animation, Storyboard & Compositing, Character Design, Concept Art, Sound Design, Character Animation, Art, Music Composition<br><br>
+            Proficient :<br>
+            Graphic Design, Motion Graphics, Music Production, 3D Modelling<br><br>
+            Novice :<br>
+            Game Programming, Website Programming
+          </p>
         </div>
-        <div class="card" id="card2">
+        <div class="card-panel">
           <h3>Soft Skills</h3>
-          Strong work ethic<br>
-          Communication<br>
-          Adaptability<br>
-          Emotional Intelligence<br>
-          Creativity<br>
-          Ability to work under pressure<br>
-          Conflict Resolution<br>
-          Problem Solving<br>
-          Responsibility<br>
-          Self-Motivation<br>
-          Leadership<br>
-          Determined<br>
+          <p>
+            Strong Work Ethic<br>Communication<br>Adaptability<br>Emotional Intelligence<br>Creativity<br>Ability to Work Under Pressure<br>Conflict Resolution<br>Problem Solving<br>Responsibility<br>Self-Motivation<br>Leadership<br>Determination
+          </p>
         </div>
-        <!-- Arrow Buttons beside the cards for Card 1 -->
-        <div class="arrow-container">
-          <button class="arrow-button left-arrow" id="prevBtn1">&#8592;</button>
-          <button class="arrow-button right-arrow" id="nextBtn1">&#8594;</button>
-        </div>
-      </div>
-      <div class="card-row">
-        <div class="card active" id="card3">
-          <h3>Programs I use</h3>
-          Adobe Animate<br>
-          Toon Boom<br>
-          Clip Studio Paint<br>
-          FL Studio<br>
-		  Blender<br>
-		  Blockbench<br>
-        </div>
-        <div class="card" id="card4">
-          <h3>Hobbies</h3>
-          Drawing<br>
-          Music Production<br>
-          Storytelling<br>
-          Gaming<br>
-          Animation<br>
-        </div>
-        <!-- Arrow Buttons beside the cards for Card 2 -->
-        <div class="arrow-container">
-          <button class="arrow-button left-arrow" id="prevBtn2">&#8592;</button>
-          <button class="arrow-button right-arrow" id="nextBtn2">&#8594;</button>
+        <div class="card-panel">
+          <h3>Programs I Use</h3>
+          <p>
+            Adobe Animate<br>Toon Boom<br>Clip Studio Paint<br>FL Studio<br>Blender<br>Blockbench<br>Notepad++<br>Visual Studio Code<br>
+          </p>
         </div>
       </div>
     </main>
     <Footer />
-
-    <script>
-      const cards1 = document.querySelectorAll('#card1, #card2');
-      const cards2 = document.querySelectorAll('#card3, #card4');
-      let currentIndex1 = 0;
-      let currentIndex2 = 0;
-
-      function showNextCard1() {
-        cards1[currentIndex1].classList.remove('active');
-        currentIndex1 = (currentIndex1 + 1) % cards1.length;
-        cards1[currentIndex1].classList.add('active');
-      }
-
-      function showPrevCard1() {
-        cards1[currentIndex1].classList.remove('active');
-        currentIndex1 = (currentIndex1 - 1 + cards1.length) % cards1.length;
-        cards1[currentIndex1].classList.add('active');
-      }
-
-      function showNextCard2() {
-        cards2[currentIndex2].classList.remove('active');
-        currentIndex2 = (currentIndex2 + 1) % cards2.length;
-        cards2[currentIndex2].classList.add('active');
-      }
-
-      function showPrevCard2() {
-        cards2[currentIndex2].classList.remove('active');
-        currentIndex2 = (currentIndex2 - 1 + cards2.length) % cards2.length;
-        cards2[currentIndex2].classList.add('active');
-      }
-
-      document.getElementById('nextBtn1').addEventListener('click', showNextCard1);
-      document.getElementById('prevBtn1').addEventListener('click', showPrevCard1);
-      document.getElementById('nextBtn2').addEventListener('click', showNextCard2);
-      document.getElementById('prevBtn2').addEventListener('click', showPrevCard2);
-    </script>
   </body>
 </html>
