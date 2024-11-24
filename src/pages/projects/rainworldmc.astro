@@ -11,26 +11,11 @@ import CardFeature from '../../components/CardFeature.astro';  // Import the car
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     <style>
-      /* Image Container Styling */
-      .portfolio-container img {
-        display: block;
-        margin: 0 auto;
-        margin-bottom: 0px;
-        margin-top: 25px;
-        width: 500px;
-        height: auto;
-      }
-
       /* Basic Reset */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-      }
-
-      body {
-        justify-content: space-between;
-        align-items: center;
       }
 
       main {
@@ -42,26 +27,154 @@ import CardFeature from '../../components/CardFeature.astro';  // Import the car
         width: 100%;
       }
 
-      .about-container {
+      .title {
+        font-size: 2em; /* Larger font for title */
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .portfolio-container {
         display: flex;
-        gap: 20px;
+        gap: 20px; /* Space between image and text */
         justify-content: center;
         align-items: center;
         margin-bottom: 40px;
-        width: 80%;
+        width: 80%; /* Stretch across the screen */
+        height: 50vh; /* Take full viewport height */
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .portfolio-container img,
+      .image-title-container {
+        width: 50%;  /* Make both the image and text container the same width */
+        height: 100%; /* Ensure both occupy the full height of the container */
+        object-fit: cover; /* Ensures the image maintains aspect ratio and fills the container */
+      }
+
+      .portfolio-container img {
+        border-radius: 8px; /* Optional: Adds rounded corners to the image */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .image-title-container {
+        background-color: rgba(0, 0, 0, 0.6);  /* Semi-transparent black background */
+        color: white;
+        font-size: 1.3rem;  /* Adjust the font size */
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+        align-items: center;
+        text-align: center;
+        border-radius: 8px;  /* Optional: Adds rounded corners to the container */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);  /* Adds a subtle shadow around the box */
+        padding: 20px;
+      }
+
+      /* Style for Reddit Embed */
+      .reddit-embed {
+        display: flex;
+        gap: 20px; /* Space between text and Reddit post */
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+        width: 80%; /* Stretch across the screen */
+        height: 50vh; /* Same height as the portfolio container */
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .reddit-embed .image-title-container {
+        background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+        color: white;
+        font-size: 1.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        width: 50%;
+        height: 100%;
+      }
+
+      .reddit-embed iframe {
+        width: 50%;
+        height: 100%;
+        border: none;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        .portfolio-container,
+        .reddit-embed {
+          flex-direction: column;
+          align-items: center;
+          height: auto; /* Allow the height to adjust for smaller screens */
+        }
+
+        .portfolio-container img,
+        .image-title-container,
+        .reddit-embed iframe,
+        .reddit-embed .image-title-container {
+          width: 80%; /* Adjust width for smaller screens */
+          height: auto; /* Allow the elements to adjust their height for smaller screens */
+        }
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align: center;
+        margin-top: 20px;
+        max-width: 800px;
+        color: #f5f5f5;
       }
     </style>
   </head>
   <body>
     <Header />
-    <div class="portfolio-container">
-      <img src="/title/about.gif" alt="Description of image" />
-    </div>
+
     <main>
+      <div class="title">
+        <h1>Rainworld MC</h1>
+      </div>
 
-<p>nothing here yet! come back soon!<p>
+      <div class="portfolio-container">
+        <img src="/project/10-10-cool.png" alt="Description of image" />
+        <div class="image-title-container">
+          <div>
+            <h2>About the Project</h2>
+            <p>
+              Rainworld MC is a Minecraft Adventure/Survival map recreation project based on the hit game *Rainworld*, led by PiggyKropotkin. The project encapsulates and mimics the gameplay of the entire *Rainworld* map in a 3D space, which is carefully planned and requires high skill and creativity to implement a 2D map into a 3D environment.
+            </p>
+            <p>
+              It also implements the core movement mechanics, world mechanics, and creatures from *Rainworld*, along with some creative adaptations of scenarios from *Rainworld* that would make sense in a 3D setting. This is a non-profit project, and everyone is working on it out of pure passion.
+            </p>
+          </div>
+        </div>
+      </div>
 
+      <div class="reddit-embed">
+        <iframe src="https://www.reddit.com/r/rainworld/comments/13xylb3/rainworld_in_minecraft_update_the_underhang/embed" width="500" height="600"></iframe>
+        <div class="image-title-container">
+          <p>
+            The project began in 2023 when PiggyKropotkin released a video of his recreation of a *Rainworld* region in Minecraft, the Underhang. It gained a lot of attention and traction, so much so that it attracted many talented people to join the project, kickstarting the progress of recreating the entire map.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        
+      </p>
     </main>
+
     <Footer />
   </body>
 </html>
