@@ -18,6 +18,14 @@ import CardFeature from '../../components/CardFeature.astro';  // Import the car
         box-sizing: border-box;
       }
 
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100vh;
+      }
+
       main {
         display: flex;
         flex-direction: column;
@@ -28,103 +36,97 @@ import CardFeature from '../../components/CardFeature.astro';  // Import the car
       }
 
       .title {
-        font-size: 2em; /* Larger font for title */
+        font-size: 2em;
         font-weight: bold;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
       }
 
-      .portfolio-container {
+      /* Consistent Container Layout */
+      .portfolio-container,
+      .reddit-container,
+      .fourth-container,
+      .temporary-container {
         display: flex;
-        gap: 20px; /* Space between image and text */
+        gap: 20px;
         justify-content: center;
         align-items: center;
         margin-bottom: 40px;
-        width: 80%; /* Stretch across the screen */
-        height: 50vh; /* Take full viewport height */
+        width: 80%;
+        height: auto;
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
       }
 
+      /* Image and Text layout */
       .portfolio-container img,
-      .image-title-container {
-        width: 50%;  /* Make both the image and text container the same width */
-        height: 100%; /* Ensure both occupy the full height of the container */
-        object-fit: cover; /* Ensures the image maintains aspect ratio and fills the container */
-      }
-
-      .portfolio-container img {
-        border-radius: 8px; /* Optional: Adds rounded corners to the image */
+      .reddit-container img,
+      .fourth-container img,
+      .temporary-container img {
+        width: 50%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       }
 
-      .image-title-container {
-        background-color: rgba(0, 0, 0, 0.6);  /* Semi-transparent black background */
-        color: white;
-        font-size: 1.3rem;  /* Adjust the font size */
-        display: flex;
-        justify-content: center;
-        padding-top: 30px;
-        align-items: center;
-        text-align: center;
-        border-radius: 8px;  /* Optional: Adds rounded corners to the container */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);  /* Adds a subtle shadow around the box */
-        padding: 20px;
-      }
-
-      /* Style for Reddit Embed */
-      .reddit-embed {
-        display: flex;
-        gap: 20px; /* Space between text and Reddit post */
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 40px;
-        width: 80%; /* Stretch across the screen */
-        height: 50vh; /* Same height as the portfolio container */
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .reddit-embed .image-title-container {
-        background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+      .image-title-container,
+      .reddit-text,
+      .fourth-container .text,
+      .temporary-container .temp-text {
+        width: 50%;
+        background-color: rgba(0, 0, 0, 0.6);
         color: white;
         font-size: 1.3rem;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        width: 50%;
-        height: 100%;
       }
+	.custom-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 30px;
+}
 
-      .reddit-embed iframe {
-        width: 50%;
-        height: 100%;
-        border: none;
-        object-fit: cover;
-        border-radius: 8px;
-      }
+.custom-line {
+    border: 0;
+    height: 6px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+    margin: 40px;
+}
 
-      /* Media Queries */
+      /* Media Queries for Responsiveness */
       @media (max-width: 768px) {
         .portfolio-container,
-        .reddit-embed {
+        .reddit-container,
+        .fourth-container,
+        .temporary-container {
           flex-direction: column;
           align-items: center;
-          height: auto; /* Allow the height to adjust for smaller screens */
+          height: auto;
         }
 
         .portfolio-container img,
-        .image-title-container,
-        .reddit-embed iframe,
-        .reddit-embed .image-title-container {
-          width: 80%; /* Adjust width for smaller screens */
-          height: auto; /* Allow the elements to adjust their height for smaller screens */
+        .portfolio-container .image-title-container,
+        .reddit-container img,
+        .reddit-container .reddit-text,
+        .fourth-container img,
+        .fourth-container .text,
+        .temporary-container img,
+        .temporary-container .temp-text {
+          width: 80%;
+          height: auto;
         }
       }
 
@@ -146,33 +148,72 @@ import CardFeature from '../../components/CardFeature.astro';  // Import the car
         <h1>Rainworld MC</h1>
       </div>
 
+      <!-- Portfolio Container (About the Project) -->
       <div class="portfolio-container">
         <img src="/project/10-10-cool.png" alt="Description of image" />
         <div class="image-title-container">
-          <div>
-            <h2>About the Project</h2>
-            <p>
-              Rainworld MC is a Minecraft Adventure/Survival map recreation project based on the hit game *Rainworld*, led by PiggyKropotkin. The project encapsulates and mimics the gameplay of the entire *Rainworld* map in a 3D space, which is carefully planned and requires high skill and creativity to implement a 2D map into a 3D environment.
-            </p>
-            <p>
-              It also implements the core movement mechanics, world mechanics, and creatures from *Rainworld*, along with some creative adaptations of scenarios from *Rainworld* that would make sense in a 3D setting. This is a non-profit project, and everyone is working on it out of pure passion.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="reddit-embed">
-        <iframe src="https://www.reddit.com/r/rainworld/comments/13xylb3/rainworld_in_minecraft_update_the_underhang/embed" width="500" height="600"></iframe>
-        <div class="image-title-container">
+          <h2>About the Project</h2>
           <p>
-            The project began in 2023 when PiggyKropotkin released a video of his recreation of a *Rainworld* region in Minecraft, the Underhang. It gained a lot of attention and traction, so much so that it attracted many talented people to join the project, kickstarting the progress of recreating the entire map.
+            Rainworld MC is a Minecraft Adventure/Survival map recreation project based on the hit game *Rainworld*, led by PiggyKropotkin. The project encapsulates and mimics the gameplay of the entire *Rainworld* map in a 3D space, which is carefully planned and requires high skill and creativity to implement a 2D map into a 3D environment.
+          </p>
+          <p>
+            It also implements the core movement mechanics, world mechanics, and creatures from *Rainworld*, along with some creative adaptations of scenarios from *Rainworld* that would make sense in a 3D setting. This is a non-profit project, and everyone is working on it out of pure passion.
           </p>
         </div>
       </div>
 
-      <p>
-        
-      </p>
+<hr class="custom-line">
+
+      <!-- Reddit Container (Project's History) -->
+      <div class="reddit-container">
+        <div class="reddit-text">
+          <h2>Project's History</h2>
+          <p>
+            The project began in 2023 when PiggyKropotkin released a video of his recreation of a Rainworld region in Minecraft, the Underhang. It quickly gained attention and traction, attracting many talented people to join the project. This led to the kickstarting of the entire map's recreation.
+          </p>
+          <p>
+            The project's success didn't go unnoticed. It caught the attention of the head developer of a Rainworld DLC, as well as other well-known developers and modders within the community. Over the course of two years, the project has recruited over 100 contributors, some of whom are responsible for art, music, modeling, coding, and building the map, along with several developers, further enhancing its progress.
+          </p>
+        </div>
+        <div class="reddit-embed">
+          <blockquote class="reddit-card" data-card-created="true">
+            <a href="https://www.reddit.com/r/rainworld/comments/13xylb3/rainworld_in_minecraft_update_the_underhang/">Rainworld in Minecraft update: The Underhang</a>
+          </blockquote>
+          <script async src="https://embed.redditmedia.com/widgets/platform.js" charset="UTF-8"></script>
+        </div>
+      </div>
+
+<hr class="custom-line">
+
+      <!-- Fourth Container (Outskirts Region) -->
+      <div class="fourth-container">
+        <img src="/project/outskirts.png" alt="Outskirts region in Rainworld" />
+        <div class="text">
+          <h2>The Map</h2>
+          <p>
+            The map is the main selling point of the entire project, with it being a couple thousand blocks wide, filled with content on all nooks and crannies, aswell as having the entire height limit raised up to another thousand blocks in both up and down to house the centerpiece of the map, Five Pebbles' Superstructure. that plus with a couple bonus regions and areas that were expanded upon to make it feel more open world, to make you feel small in comparison. the map comprises of hundreds of custom modeled blocks as well as a shader system that recolors the map's assets to fit the color scheme of each region. it also has gameplay features to make the map more faithful to the original game, such as pipes, poles, tunnels and customized mod that mimics the movement of the main game
+          </p>
+        </div>
+      </div>
+
+<hr class="custom-line">
+
+      <!-- Temporary Container with Placeholder Content -->
+      <div class="temporary-container">
+        <div class="temp-text">
+          <h2>The Creatures</h2>
+          <p>
+            The creatures are a key part of Rainworld's identity, with AI that mimics real predatory wildlife in an ecosystem. I’m fortunate to be the one who is responsible for modelling most of RainworldMC's flora and fauna. They will complement the map by providing challenging, unpredictable gameplay that enhances the Rainworld MC experience.<br><br>You can view the best models i made for the project here!
+          </p>
+		  <a href="/blog/3d-models">
+  <button class="custom-button">
+    View 3D Models
+  </button>
+</a>
+
+        </div>
+        <img src="/project/lizor.png" alt="Temporary Image" />
+      </div>
     </main>
 
     <Footer />
