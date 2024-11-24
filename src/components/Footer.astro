@@ -2,6 +2,7 @@
     <div class="gif-container">
         <div class="placeholder-box"></div>
         <img src="/logos.gif" alt="Footer GIF" class="centered-gif" />
+		<img src="/title/astro.gif" class="astro-gif"/>
         <div class="placeholder-box"></div>
     </div>
 </footer>
@@ -39,6 +40,16 @@ html, body {
     height: auto;
     max-width: 100%;
     padding: 0px;
+}
+
+.astro-gif {
+    position: absolute; /* Makes the element scroll with the page */
+    height: auto;
+    max-width: 6%;
+    left: 0vw; /* Adjust horizontal placement */
+    top: 4vh; /* Adjust vertical placement */
+    transform: translateY(-50%); /* Centers the element vertically */
+    z-index: 2; /* Keeps it above other elements */
 }
 
 /* Placeholder Box */
@@ -79,7 +90,7 @@ main {
 .scroll-to-top-btn {
     position: fixed;
     bottom: 20px; /* Always visible, at the bottom of the screen */
-    right: 20px;
+    right: 40px;
     background-color: #db3f23;
     color: white;
     border: none;

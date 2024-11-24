@@ -86,7 +86,7 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
         border-radius: 15px;
       }
 
-      /* Card Panels Container */
+/* Card Panels Styling */
       .card-panel-container {
         display: flex;
         justify-content: space-between;
@@ -120,31 +120,30 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
         line-height: 1.5;
       }
 
-@media (max-width: 768px) {
-  .card-panel-container {
-    flex-direction: column; /* Stack panels vertically */
-    gap: 10px; /* Smaller spacing between panels */
-    align-items: center; /* Center the thinner cards */
-  }
+      @media (max-width: 768px) {
+        .card-panel-container {
+          flex-direction: column;
+          gap: 10px;
+          align-items: center;
+        }
 
-  .card-panel {
-    flex: 1 1 auto;
-    width: 80%; /* Make the cards thinner */
-    padding: 10px; /* Smaller padding */
-    font-size: 0.85em; /* Slightly smaller text size */
-  }
+        .card-panel {
+          flex: 1 1 auto;
+          width: 80%;
+          padding: 10px;
+          font-size: 0.85em;
+        }
 
-  .card-panel h3 {
-    font-size: 1em; /* Adjust heading size */
-    margin-bottom: 8px; /* Adjust spacing below heading */
-  }
+        .card-panel h3 {
+          font-size: 1em;
+          margin-bottom: 8px;
+        }
 
-  .card-panel p {
-    font-size: 0.85em; /* Adjust paragraph size */
-    line-height: 1.4; /* Maintain readability */
-  }
-}
-
+        .card-panel p {
+          font-size: 0.85em;
+          line-height: 1.4;
+        }
+      }
 
 
       footer {
@@ -181,25 +180,24 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
         </p>
       </div>
 
-      <!-- New Card Panels -->
-      <div class="card-panel-container">
+<div class="card-panel-container">
+        <!-- Card Panel 1 -->
         <div class="card-panel">
           <h3>Hard Skills</h3>
           <p>
-            Expert :<br>
-            2D Animation, Storyboard & Compositing, Character Design, Concept Art, Sound Design, Character Animation, Art, Music Composition<br><br>
-            Proficient :<br>
-            Graphic Design, Motion Graphics, Music Production, 3D Modelling<br><br>
-            Novice :<br>
-            Game Programming, Website Programming
+            Expert:<br>2D Animation, Storyboard & Compositing, Character Design, Concept Art, Sound Design, Character Animation, Art, Music Composition<br><br>
+            Proficient:<br>Graphic Design, Motion Graphics, Music Production, 3D Modelling<br><br>
+            Novice:<br>Game Programming, Website Programming
           </p>
         </div>
+        <!-- Card Panel 2 -->
         <div class="card-panel">
           <h3>Soft Skills</h3>
           <p>
             Strong Work Ethic<br>Communication<br>Adaptability<br>Emotional Intelligence<br>Creativity<br>Ability to Work Under Pressure<br>Conflict Resolution<br>Problem Solving<br>Responsibility<br>Self-Motivation<br>Leadership<br>Determination
           </p>
         </div>
+        <!-- Card Panel 3 -->
         <div class="card-panel">
           <h3>Programs I Use</h3>
           <p>
