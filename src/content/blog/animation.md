@@ -38,6 +38,14 @@ heroImage: '/portfolio/animation/duckass.gif'
       <p>Toon Boom</p>
     </div>
   </div>
+  
+  <div class="image-container">
+    <img src="/portfolio/animation/idi.gif" alt="Clean Up & Inbetweens (Toon Boom)" />
+    <div class="overlay">
+      <h3>Idiot Spider</h3>
+      <p>Clip Studio Paint</p>
+    </div>
+  </div>
 
   <div class="image-container">
     <img src="/portfolio/animation/RUNNINGMAN.gif" alt="Run Cycle (Clip Studio Paint)" />
