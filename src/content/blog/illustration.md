@@ -5,6 +5,8 @@ pubDate: 'Jul 08 2022'
 heroImage: '/portfolio/illustration/covering.png'
 ---
 
+Here you can see the Illustrations i draw in my lesiure time!<br>Hover over them and click to take a closer look!
+
 <!-- Gallery Container -->
 <div class="gallery-container">
 
@@ -122,14 +124,51 @@ heroImage: '/portfolio/illustration/covering.png'
   </div>
 </div>
 
+<hr class="custom-line">
+
+<div class="button-container">
+  <a href="/blog/animation" class="button left-button">To Animation Page</a>
+  <a href="/blog/layout" class="button right-button">To Layout Page</a>
+</div>
+
 <style>
-/* General Styling */
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+/* Container to position buttons */
+.button-container {
+  top: 100%; /* Center vertically */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none; /* Disable interference for non-interactive areas */
 }
+
+/* General button styles */
+.button {
+  pointer-events: auto; /* Enable interaction for buttons */
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Position buttons */
+.left-button {
+  margin-left: 20px;
+}
+
+.right-button {
+  margin-right: 20px;
+}
+
+/* Hover effect */
+.button:hover {
+  transform: scale(1.02); /* Grow on hover */
+  background-color: #555; /* Change color on hover */
+}
+
 
 /* Custom line divider */
 .custom-line {
@@ -285,6 +324,8 @@ body {
   align-items: center;
   opacity: 0;
   transition: opacity 0.2s ease;
+    backdrop-filter: blur(10px); /* Apply blur effect to the background */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
 }
 
 /* Modal Content */
@@ -293,7 +334,6 @@ body {
   max-height: 70%;
   margin: auto;
   display: block;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   transform: none; /* Removed translateX */
   position: relative; /* Ensures positioning relative to the parent container */
   display: flex; /* Enables flexbox */

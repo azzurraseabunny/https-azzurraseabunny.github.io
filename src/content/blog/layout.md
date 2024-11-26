@@ -5,6 +5,8 @@ pubDate: 'Jul 07 2022'
 heroImage: '/portfolio/layout/covering.png'
 ---
 
+Here you can see the designs i create for personal or school purposes!<br>Click on them to take a closer look!
+
 <!-- Gallery Container -->
 <div class="gallery-container">
 
@@ -89,13 +91,86 @@ heroImage: '/portfolio/layout/covering.png'
   <img class="modal-content" id="modal-img" />
 </div>
 
+<hr class="custom-line">
+
+<div class="button-container">
+  <a href="/blog/illustration" class="button left-button">To Illustrations Page</a>
+  <a href="/blog/traditional" class="button right-button">To Traditional Page</a>
+</div>
+
 <style>
-/* General Styling */
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+/* Container to position buttons */
+.button-container {
+  top: 100%; /* Center vertically */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none; /* Disable interference for non-interactive areas */
+}
+
+/* General button styles */
+.button {
+  pointer-events: auto; /* Enable interaction for buttons */
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Position buttons */
+.left-button {
+  margin-left: 20px;
+}
+
+.right-button {
+  margin-right: 20px;
+}
+
+/* Hover effect */
+.button:hover {
+  transform: scale(1.02); /* Grow on hover */
+  background-color: #555; /* Change color on hover */
+}
+
+/* Container to position buttons */
+.button-container {
+  top: 100%; /* Center vertically */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none; /* Disable interference for non-interactive areas */
+}
+
+/* General button styles */
+.button {
+  pointer-events: auto; /* Enable interaction for buttons */
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Position buttons */
+.left-button {
+  margin-left: 20px;
+}
+
+.right-button {
+  margin-right: 20px;
+}
+
+/* Hover effect */
+.button:hover {
+  transform: scale(1.02); /* Grow on hover */
+  background-color: #555; /* Change color on hover */
 }
 
 /* Custom line divider */
@@ -181,6 +256,8 @@ body {
   align-items: center;
   opacity: 0;
   transition: opacity 0.2s ease;
+    backdrop-filter: blur(10px); /* Apply blur effect to the background */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
 }
 
 .modal-content {
@@ -188,7 +265,6 @@ body {
   max-height: 70%;
   margin: auto;
   display: block;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .close {

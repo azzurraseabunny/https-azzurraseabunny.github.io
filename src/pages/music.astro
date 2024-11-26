@@ -215,6 +215,10 @@ const tracks = [
   <input id="global-volume-slider" class="volume-slider" type="range" min="0" max="100" step="0.01" value="100" />
 </div>
 
+<div class="button-container">
+  <a href="/blog/3d-models" class="button left-button">To 3D Models Page</a>
+  <a href="/blog/sound-design" class="button right-button">To Sound Design Page</a>
+</div>
 
 </article>
 		</main>
@@ -222,6 +226,43 @@ const tracks = [
 	</body>
 
 <style>
+/* Container to position buttons */
+.button-container {
+  top: 100%; /* Center vertically */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(50%);
+  pointer-events: none; /* Disable interference for non-interactive areas */
+}
+
+/* General button styles */
+.button {
+  pointer-events: auto; /* Enable interaction for buttons */
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Position buttons */
+.left-button {
+  margin-left: 20px;
+}
+
+.right-button {
+  margin-right: 20px;
+}
+
+/* Hover effect */
+.button:hover {
+  transform: scale(1.02); /* Grow on hover */
+  background-color: #555; /* Change color on hover */
+}
 
 ..global-volume-control {
   display: flex;

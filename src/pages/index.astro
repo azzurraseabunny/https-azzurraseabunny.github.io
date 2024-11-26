@@ -51,13 +51,16 @@ import CardFeature from '../components/CardFeature.astro';  // Import the card f
       }
 
       .about-container {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 40px;
-        width: 80%;
-      }
+  display: flex;
+  flex-wrap: wrap; /* Ensure responsiveness */
+  gap: 20px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2); /* Black transparent background */
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.5); /* Inset shadow for depth */
+  border-radius: 12px; /* Optional rounded corners */
+  max-width: 800px; /* Adjust as necessary */
+  margin: 20px auto; /* Center the container */
+}
 
       .text-container {
         font-size: 1.1em;

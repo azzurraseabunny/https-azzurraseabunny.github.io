@@ -43,8 +43,51 @@ A small practice i made in preparation for the 2nd Quarter Exam!
 
 (pls put teh completed storyboard fight here zurras thanksyous!!!)
 
+<hr class="custom-line">
+
+<div class="button-container">
+  <a href="/" class="button left-button">To About Page</a>
+  <a href="/blog/animation" class="button right-button">To Animation Page</a>
+</div>
 
 <style>
+/* Container to position buttons */
+.button-container {
+  top: 100%; /* Center vertically */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none; /* Disable interference for non-interactive areas */
+}
+
+/* General button styles */
+.button {
+  pointer-events: auto; /* Enable interaction for buttons */
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Position buttons */
+.left-button {
+  margin-left: 20px;
+}
+
+.right-button {
+  margin-right: 20px;
+}
+
+/* Hover effect */
+.button:hover {
+  transform: scale(1.02); /* Grow on hover */
+  background-color: #555; /* Change color on hover */
+}
+
 .custom-line {
     border: 0;
     height: 6px;
