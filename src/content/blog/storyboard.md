@@ -41,6 +41,13 @@ A small practice i made in preparation for the 2nd Quarter Exam!
 
 ## put 2nd storyboard exam here (Blender)
 
+<div class="video-container">
+  <video controls>
+    <source src="/portfolio/storyboarding/temp.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 (pls put teh completed storyboard fight here zurras thanksyous!!!)
 
 <hr class="custom-line">
