@@ -24,7 +24,7 @@ Sound Design is also made by me!
 
 ## Whiplash (Clip Studio Paint)
 
-A small practice i made in preparation for the 2nd Quarter Exam!
+Tried animating a move my dnd character has :0
 
 <div class="image-container">
   <img src="/portfolio/storyboarding/thebigfight.gif" alt="Description of image" />
