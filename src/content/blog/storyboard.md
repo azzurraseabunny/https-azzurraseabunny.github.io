@@ -41,7 +41,9 @@ Tried animating a move my dnd character has :0
 ## put 2nd storyboard exam here (Blender)
 
 This is an animatic of one of my stories, Seraphic Monolith!
-this particular sequence includes more fast-paced shots!
+this particular sequence includes more fast-paced shots! I never really took the time to find reference videos for this but
+I'd say it turned out okay for someone that just started making animatics on blender! :0
+I'm still sure that i can do better with reference videos
 
 <div class="video-container">
   <video controls>
@@ -49,8 +51,6 @@ this particular sequence includes more fast-paced shots!
     Your browser does not support the video tag.
   </video>
 </div>
-
-(pls put teh completed storyboard fight here zurras thanksyous!!!)
 
 <hr class="custom-line">
 
