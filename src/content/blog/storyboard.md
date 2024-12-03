@@ -40,10 +40,11 @@ Tried animating a move my dnd character has :0
 
 ## Terror In The City (Blender)
 
-This is an animatic of one of my stories, Seraphic Monolith!<br>
-this particular sequence includes more fast-paced shots! I never really took the time to find reference videos for this but<br>
-I'd say it turned out okay for someone that just started making animatics on blender! :0<br><br>
-I'm still sure that i can do better with reference videos
+This is an animatic of one of my stories, Seraphic Monolith!<br><br>
+this particular sequence includes more fast-paced shots! I never really took the time to find reference videos for this but
+I'd say it turned out okay for someone that just started making animatics on blender! :0<br>
+I'm still sure that i can do better with reference videos though<br><br>
+Sound Design is also made by me!
 
 <div class="video-container">
   <video controls>
