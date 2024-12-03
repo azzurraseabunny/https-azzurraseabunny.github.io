@@ -7,9 +7,8 @@ heroImage: '/portfolio/storyboarding/thebigfight.gif'
 
 ## Azure Wasteland Concept (Clip Studio Paint)
 
-This is an animatic of my story for an exam on Fundementals of Storyboarding!
-while its my first time doing something like this, i had a lot of fun playing around with
-shots and angles for the first time!
+This is an animatic of one of my story, Azure Wasteland!
+it was great experimenting with shots and angles for the first time!
 
 Sound Design is also made by me!
 
@@ -40,6 +39,9 @@ Tried animating a move my dnd character has :0
 <hr class="custom-line">
 
 ## put 2nd storyboard exam here (Blender)
+
+This is an animatic of one of my stories, Seraphic Monolith!
+this particular sequence includes more fast-paced shots!
 
 <div class="video-container">
   <video controls>
