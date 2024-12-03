@@ -7,11 +7,6 @@ heroImage: '/portfolio/storyboarding/thebigfight.gif'
 
 ## Azure Wasteland Concept (Clip Studio Paint)
 
-This is an animatic of one of my story, Azure Wasteland!
-it was great experimenting with shots and angles for the first time!
-
-Sound Design is also made by me!
-
 <div class="video-container">
   <video controls>
     <source src="/portfolio/storyboarding/azurewasteland.mp4" type="video/mp4">
@@ -19,17 +14,22 @@ Sound Design is also made by me!
   </video>
 </div>
 
+This is an animatic of one of my story, Azure Wasteland!
+it was great experimenting with shots and angles for the first time!
+
+Sound Design is also made by me!
+
 <hr class="custom-line">
 
 ## Whiplash (Clip Studio Paint)
-
-Tried animating a move my dnd character has :0
 
 <div class="image-container">
   <img src="/portfolio/storyboarding/thebigfight.gif" alt="Description of image" />
 </div>
 
 <hr class="custom-line">
+
+Tried animating a move my dnd character has :0
 
 ## The Saint (Clip Studio Paint)
 <div class="image-container">
@@ -40,18 +40,18 @@ Tried animating a move my dnd character has :0
 
 ## Terror In The City (Blender)
 
-This is an animatic of one of my stories, Seraphic Monolith!<br><br>
-this particular sequence includes more fast-paced shots! I never really took the time to find reference videos for this but
-I'd say it turned out okay for someone that just started making animatics on blender! :0<br>
-I'm still sure that i can do better with reference videos though<br><br>
-Sound Design is also made by me!
-
 <div class="video-container">
   <video controls>
     <source src="/portfolio/storyboarding/temp.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </div>
+
+This is an animatic of one of my stories, Seraphic Monolith!<br><br>
+this particular sequence includes more fast-paced shots! I never really took the time to find reference videos for this but
+I'd say it turned out okay for someone that just started making animatics on blender! :0<br>
+I'm still sure that i can do better with reference videos though<br><br>
+Sound Design is also made by me!
 
 <hr class="custom-line">
 
