@@ -38,11 +38,11 @@ Tried animating a move my dnd character has :0
 
 <hr class="custom-line">
 
-## put 2nd storyboard exam here (Blender)
+## Terror In The City (Blender)
 
-This is an animatic of one of my stories, Seraphic Monolith!
-this particular sequence includes more fast-paced shots! I never really took the time to find reference videos for this but
-I'd say it turned out okay for someone that just started making animatics on blender! :0
+This is an animatic of one of my stories, Seraphic Monolith!<br>
+this particular sequence includes more fast-paced shots! I never really took the time to find reference videos for this but<br>
+I'd say it turned out okay for someone that just started making animatics on blender! :0<br><br>
 I'm still sure that i can do better with reference videos
 
 <div class="video-container">
