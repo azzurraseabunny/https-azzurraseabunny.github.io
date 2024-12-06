@@ -67,6 +67,14 @@ Here you can see the Illustrations i draw in my lesiure time!<br>Hover over them
   </div>
   
   <div class="image-container">
+    <img src="/portfolio/illustration/sigma wolf.png"  class="clickable-image" data-title="Golden Wolf" data-description="Clip Studio Paint" />
+    <div class="overlay">
+      <h3>Golden Wolf</h3>
+      <p>Clip Studio Paint</p>
+    </div>
+  </div>
+  
+  <div class="image-container">
     <img src="/portfolio/illustration/ancientbg.png"  class="clickable-image" data-title="Ancient" data-description="Clip Studio Paint" />
     <div class="overlay">
       <h3>Ancient</h3>
