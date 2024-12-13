@@ -82,6 +82,38 @@ Here you can see the designs i create for personal or school purposes!<br>Click 
       <p>Clip Studio Paint</p>
     </div>
   </div>
+  
+  <div class="image-container">
+    <img src="/portfolio/layout/bag.jpg" class="clickable-image" />
+    <div class="overlay">
+      <h3>Tamis Sinta Paper Bag</h3>
+      <p>Adobe Photoshop</p>
+    </div>
+  </div>
+  
+  <div class="image-container">
+    <img src="/portfolio/layout/box.jpg" class="clickable-image" />
+    <div class="overlay">
+      <h3>Tamis Sinta Postal Box</h3>
+      <p>Adobe Photoshop</p>
+    </div>
+  </div>
+  
+  <div class="image-container">
+    <img src="/portfolio/layout/morebox.jpg" class="clickable-image" />
+    <div class="overlay">
+      <h3>Tamis Sinta Box</h3>
+      <p>Adobe Photoshop</p>
+    </div>
+  </div>
+  
+  <div class="image-container">
+    <img src="/portfolio/layout/postal bag.jpg" class="clickable-image" />
+    <div class="overlay">
+      <h3>Tamis Sinta Postal Bag</h3>
+      <p>Adobe Photoshop</p>
+    </div>
+  </div>
 
 </div>
 
