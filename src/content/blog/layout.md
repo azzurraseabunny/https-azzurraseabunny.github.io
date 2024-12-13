@@ -100,7 +100,7 @@ Here you can see the designs i create for personal or school purposes!<br>Click 
   </div>
   
   <div class="image-container">
-    <img src="/portfolio/layout/morebox.jpg" class="clickable-image" />
+    <img src="/portfolio/layout/more box.jpg" class="clickable-image" />
     <div class="overlay">
       <h3>Tamis Sinta Box</h3>
       <p>Adobe Photoshop</p>
@@ -108,7 +108,7 @@ Here you can see the designs i create for personal or school purposes!<br>Click 
   </div>
   
   <div class="image-container">
-    <img src="/portfolio/layout/postal bag.jpg" class="clickable-image" />
+    <img src="/portfolio/layout/postalbag.jpg" class="clickable-image" />
     <div class="overlay">
       <h3>Tamis Sinta Postal Bag</h3>
       <p>Adobe Photoshop</p>
