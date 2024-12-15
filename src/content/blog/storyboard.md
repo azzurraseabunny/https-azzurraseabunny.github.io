@@ -27,9 +27,9 @@ Sound Design is also made by me!
   <img src="/portfolio/storyboarding/thebigfight.gif" alt="Description of image" />
 </div>
 
-<hr class="custom-line">
-
 Tried animating a move my dnd character has :0
+
+<hr class="custom-line">
 
 ## The Saint (Clip Studio Paint)
 <div class="image-container">
