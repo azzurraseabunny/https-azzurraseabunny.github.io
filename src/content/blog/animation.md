@@ -31,7 +31,7 @@ Here you can see the animations i create for personal or school purposes!<br>Cli
       data-description="Adobe Animate"
     />
     <div class="overlay">
-      <h3>Scavengers</h3>
+      <h3>Rain Deer</h3>
       <p>Adobe Animate</p>
     </div>
   </div>
