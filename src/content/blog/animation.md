@@ -21,6 +21,20 @@ Here you can see the animations i create for personal or school purposes!<br>Cli
       <p>Adobe Animate</p>
     </div>
   </div>
+  
+  <div class="image-container">
+    <img
+      src="/portfolio/animation/pookiedeer.gif"
+      alt="Rain Deer (Adobe Animate)"
+      class="clickable-image"
+      data-title="Rain Deer"
+      data-description="Adobe Animate"
+    />
+    <div class="overlay">
+      <h3>Scavengers</h3>
+      <p>Adobe Animate</p>
+    </div>
+  </div>
 
   <div class="image-container">
     <img
