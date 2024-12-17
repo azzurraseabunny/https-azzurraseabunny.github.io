@@ -21,6 +21,20 @@ Here you can see the models i create for personal or school purposes!<br>Click o
       <p>Blender</p>
     </div>
   </div>
+  
+  <div class="image-container">
+    <img
+      src="/portfolio/3d/AI Mad.png"
+      alt="Rainworld Iterator Room (Blender)"
+      class="clickable-image"
+      data-title="Rainworld Iterator Room"
+      data-description="Blender"
+    />
+    <div class="overlay">
+      <h3>Rainworld Iterator Room</h3>
+      <p>Blender</p>
+    </div>
+  </div>
 
   <div class="image-container">
     <img
