@@ -5,6 +5,9 @@ pubDate: 'Jul 10 2022'
 heroImage: '/portfolio/storyboarding/thebigfight.gif'
 ---
 
+I make storyboards on both free time and for school purposes!,<br>
+I can do both 2D and 3D but i much prefer 3D for more control over the camera shots!
+
 ## Azure Wasteland Concept (Clip Studio Paint)
 
 <div class="video-container">

@@ -5,7 +5,7 @@ pubDate: 'Jul 09 2022'
 heroImage: '/portfolio/animation/duckass.gif'
 ---
 
-Here you can see the animations i create for personal or school purposes!<br>Click on them to take a closer look!
+I can animate using a few programs including Adobe Animate, Clip Studio Paint and Toon Boom!<br>Click on them to take a closer look!
 
 <div class="gallery-container">
   <div class="image-container">

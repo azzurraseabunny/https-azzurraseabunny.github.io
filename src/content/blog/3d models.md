@@ -5,7 +5,7 @@ pubDate: 'Jul 05 2022'
 heroImage: '/portfolio/3d/covering.png'
 ---
 
-Here you can see the models i create for personal or school purposes!<br>Click on them to take a closer look!
+I can 3D Model scenes, objects and creatures on both Blender and Blockbench!<br>Click on them to take a closer look!
 
 <div class="gallery-container">
   <div class="image-container">
