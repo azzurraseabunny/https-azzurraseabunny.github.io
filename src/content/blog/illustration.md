@@ -81,6 +81,14 @@ Here you can see the Illustrations i draw in my lesiure time!<br>Hover over them
       <p>Clip Studio Paint</p>
     </div>
   </div>
+  
+  <div class="image-container">
+    <img src="/portfolio/illustration/halcyonpromo.png"  class="clickable-image" data-title="Ancient" data-description="Clip Studio Paint" />
+    <div class="overlay">
+      <h3>Iterator Funkin Promo Art</h3>
+      <p>Clip Studio Paint</p>
+    </div>
+  </div>
 
   <div class="image-container">
     <img src="/portfolio/illustration/fluttrerbee.png"  class="clickable-image" data-title="Flutterbee" data-description="Clip Studio Paint" />
