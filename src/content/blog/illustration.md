@@ -107,6 +107,14 @@ Here you can see the Illustrations i draw in my lesiure time!<br>Hover over them
   </div>
   
   <div class="image-container">
+    <img src="/portfolio/illustration/rwcutscene1.png"  class="clickable-image" data-title="Tethered Beyond Horizons" data-description="Clip Studio Paint" />
+    <div class="overlay">
+      <h3>Tethered Beyond Horizons</h3>
+      <p>Clip Studio Paint</p>
+    </div>
+  </div>
+  
+  <div class="image-container">
     <img src="/portfolio/illustration/wipoutskirts.png"  class="clickable-image" data-title="Outskirts ( WIP )" data-description="Clip Studio Paint" />
     <div class="overlay">
       <h3>Outskirts ( WIP )</h3>
