@@ -7,6 +7,22 @@ heroImage: '/portfolio/animation/duckass.gif'
 
 I can animate using a few programs including Adobe Animate, Clip Studio Paint and Toon Boom!<br>Click on them to take a closer look!
 
+<hr class="custom-line">
+
+## Videos
+
+Puyat ( WIP ) || Blender
+<div class="video-container">
+  <video controls>
+    <source src="/portfolio/animation/wips.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<hr class="custom-line">
+
+## GIFS
+
 <div class="gallery-container">
   <div class="image-container">
     <img
@@ -33,6 +49,34 @@ I can animate using a few programs including Adobe Animate, Clip Studio Paint an
     <div class="overlay">
       <h3>Rain Deer</h3>
       <p>Adobe Animate</p>
+    </div>
+  </div>
+  
+  <div class="image-container">
+    <img
+      src="/portfolio/animation/toffee.gif"
+      alt="Toffee (Toon Boom)"
+      class="clickable-image"
+      data-title="Toffee"
+      data-description="Toon Boom"
+    />
+    <div class="overlay">
+      <h3>Toffee</h3>
+      <p>Toon boom</p>
+    </div>
+  </div>
+
+  <div class="image-container">
+    <img
+      src="/portfolio/animation/gato.gif"
+      alt="gato (Toon Boom)"
+      class="clickable-image"
+      data-title="gato"
+      data-description="Toon Boom"
+    />
+    <div class="overlay">
+      <h3>gato</h3>
+      <p>Toon boom</p>
     </div>
   </div>
 
@@ -155,6 +199,55 @@ I can animate using a few programs including Adobe Animate, Clip Studio Paint an
 </div>
 
 <style>
+
+/* Video container styling */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  background-color: #000; /* Optional: Adds background color */
+  margin: 20px auto;
+  border: 5px solid #333; /* Light border around the video */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+  overflow: hidden; /* Ensures rounded corners aren't cut off */
+}
+
+/* Video styling */
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video fills the container */
+  pointer-events: auto; /* Allow interaction with the video */
+}
+
+/* Prevent downloading the video */
+video::-webkit-media-controls-download-button {
+  display: none; /* Hides the download button in Chrome */
+}
+
+video::-moz-media-controls-download-button {
+  display: none; /* Hides the download button in Firefox */
+}
+
+/* Optional: Add play button overlay */
+.video-container::before {
+  content: '\f04b'; /* Unicode for play icon */
+  font-family: 'FontAwesome'; /* Use FontAwesome for icon */
+  font-size: 50px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Disable interaction with the overlay */
+}
+
 /* Container to position buttons */
 .button-container {
   top: 100%; /* Center vertically */
