@@ -69,14 +69,14 @@ Puyat ( WIP ) || Blender
   <div class="image-container">
     <img
       src="/portfolio/animation/gato.gif"
-      alt="gato (Toon Boom)"
+      alt="gato (Adobe Animate)"
       class="clickable-image"
       data-title="gato"
-      data-description="Toon Boom"
+      data-description="Adobe Animate"
     />
     <div class="overlay">
       <h3>gato</h3>
-      <p>Toon boom</p>
+      <p>Adobe Animate</p>
     </div>
   </div>
 
