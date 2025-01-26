@@ -79,6 +79,20 @@ Puyat ( WIP ) || Blender
       <p>Adobe Animate</p>
     </div>
   </div>
+  
+  <div class="image-container">
+    <img
+      src="/portfolio/animation/ancient.gif"
+      alt="Ancient Head Turn (Adobe Animate)"
+      class="clickable-image"
+      data-title="Ancient Head Turn"
+      data-description="Adobe Animate"
+    />
+    <div class="overlay">
+      <h3>Ancient Head Turn</h3>
+      <p>Adobe Animate</p>
+    </div>
+  </div>
 
   <div class="image-container">
     <img
